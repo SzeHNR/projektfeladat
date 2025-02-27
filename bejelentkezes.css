@@ -1,13 +1,13 @@
-body{
+body {
     padding: 10px;
 }
 
-div{
+div {
     border: 1px solid black;
     padding: 5px;
 }
 
-.bejelentkezes_regisztracio{
+.bejelentkezes_regisztracio {
     border: none;
     text-align: center;
     margin: 10rem auto;
@@ -15,33 +15,35 @@ div{
     align-items: center;
     flex-direction: column;
     height: 23rem;
-    width: 20rem;
+    width: 33rem;
 }
 
-input{
+input {
     width: 80%;
     height: 80%;
     margin: 5px;
     padding: 1rem;
 }
 
-p{
+p {
     text-align: left;
     text-indent: 1rem;
     margin-bottom: 2px;
     position: relative;
 }
 
-.bejelentkezes{
+.bejelentkezes {
     position: relative;
     padding: 4rem 1.5rem 1rem 1.5rem;
     border: 2px solid var(--primary-color);
+    background-color: #434769;
     border-radius: 15px;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
-    color: var(--secondary-color);
+    color: white;
+
 }
 
-.bejelentkezes_header{
+.bejelentkezes_header {
     display: flex;
     position: absolute;
     top: 0;
@@ -50,14 +52,14 @@ p{
     justify-content: center;
     padding: 0.6rem 1.5rem;
     transform: translateX(-50%);
-    background-color: rgb(184, 184, 184);
+    background-color: white;
     color: black;
-    font-size: clamp(2rem, 1vw, 2rem);
+    font-size: clamp(1rem, 2vw, 2rem);
     border-radius: 0 0 15px 15px;
     border: none;
 }
 
-.bejelentkezes_header::before{
+.bejelentkezes_header::before {
     content: "";
     position: absolute;
     top: 0;
@@ -66,10 +68,10 @@ p{
     height: 30px;
     border-top-right-radius: 50%;
     background-color: transparent;
-    box-shadow: 15px 0 0 0 rgb(184, 184, 184);
+    box-shadow: 15px 0 0 0 white;
 }
 
-.bejelentkezes_header::after{
+.bejelentkezes_header::after {
     content: "";
     position: absolute;
     top: 0;
@@ -78,6 +80,104 @@ p{
     height: 30px;
     border-top-left-radius: 50%;
     background-color: transparent;
-    box-shadow: -15px 0 0 0 rgb(184, 184, 184);
+    box-shadow: -15px 0 0 0 white;
 }
 
+.regisztral_bejelentkezik {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    gap: 20px;
+    border: none;
+}
+
+#felhasznalonev {
+    margin-top: 5rem;
+}
+
+.button {
+    cursor: pointer;
+    background-color: #f9b17a;
+    color: black;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 20px #f9b17a;
+}
+
+input[type=text],
+input[type=password],
+input[type=email] {
+    border: none;
+    background-color: #676f9d;
+    color: white;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus {
+    border-left: 2px solid #f9b17a;
+    color: white;
+    outline: none;
+    box-shadow: -20px 0 20px -10px #f9b17a;
+}
+
+input[type=text]::placeholder,
+input[type=password]::placeholder,
+input[type=email]::placeholder {
+    color: white;
+    font-size: medium;
+}
+
+.rememberMe_elfelejtettemJelszavam {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    transform: translateY(-1.2rem);
+}
+
+.rememberMe {
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.rememberMe>p {
+    color: #676f9d;
+    text-decoration: none;
+}
+
+.rememberMe>input[type=checkbox] {
+    padding: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+}
+
+.rememberMe>input[type="checkbox"]:checked {
+
+    background-color: #676f9d;
+
+}
+
+.elfelejtettemJelszavam {
+    border: none;
+    align-items: center;
+    padding-right: 1.5rem;
+}
+
+.elfelejtettemJelszavam>a {
+    color: #676f9d;
+    text-decoration: none;
+}

@@ -8,31 +8,35 @@
     <link rel="stylesheet" href="bejelentkezes.css">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="minigame.css">
+    <link rel="stylesheet" href="teendok.css">
     <link rel="stylesheet" href="fiokadatok.css">
 </head>
 
 <body>
-    <!--Note(ok)    (ne kötekedésként vedd)
-    1.  A tanárúr kiemelte, hogy viewport-ot használjunk mértékegységként
-    2.  Az oldalsávnál lehetne kategóriákra bonati a teendőket (csak brainstorming, semmi több)
-    3.  Nem, egyenlőre nem main-re megy
-    -->
     <div class="container">
-        <div class="bejelentkezes_regisztracio" style="display: none;">
+        <div class="bejelentkezes_regisztracio">
             <div class="bejelentkezes">
-                <div class="bejelentkezes_header">bejelentkezes</div>
-                <p>felhasználó név</p>
+                <div class="bejelentkezes_header">Bejelentkezes</div>
                 <input type="text" name="felhasznalonev" id="felhasznalonev" placeholder="felhasználónév">
-                <p>jelszó</p>
                 <input type="password" name="jelszo" id="jelszo" placeholder="jelszó">
-                <p>email</p>
                 <input type="email" name="email" id="email" placeholder="email">
-                <div class="bejelentkezes_bejelentkezesgomb">bejelentkezes</div>
-                <p id="hiba"></p>
-                <div class="regisztracio_gomb">regisztracio</div>
+                <div class="rememberMe_elfelejtettemJelszavam">
+                    <div class="rememberMe">
+                        <input type="checkbox" name="" id=""><span class="checkbox"></span>
+                        <p>maradj bejelentkezve</p>
+                    </div>
+                    <div class="elfelejtettemJelszavam">
+                        <a href="">elfelejtettem a jelszavam</a>
+                    </div>
+                </div>
+                <div class="regisztral_bejelentkezik">
+                    <div onclick="bejelentkezes()" class="button bejelentkezes_bejelentkezesgomb">bejelentkezes</div>
+                    <div onclick="regisztracio()" class="button regisztracio_gomb">regisztracio</div>
+                </div>
+                
             </div>
             <div class="regisztracio" style="display: none;">
-                
+
             </div>
         </div>
         <!--csak azert hogy a belallitasokat folyamatosan oda lehessen rakni-->
@@ -44,28 +48,151 @@
                     <div class="elem3">havi</div>
                     <div class="elem4">rutin</div>
                 </div>
-                <div class="main" style="border: none;">
+                <div class="main">
                     <!-- teendok 
-                    ugy fog mukodni hogy a felhasznalo hozza tud adni dolgokat, es mikor ranyom a plusszra akkor ki fog adni egy olyan kis feluletet mint a bejelentkezesnel es ott meg tudja adni a dolgokat, amik utana bekerulnek, azaz a beirt adatokkal letrehoz egy uj divet-->
-                    <div class="teendok_fejlec" >
-                        <div style="border: none;"></div>
-                        <div class="fejlec_kerekites">Rutin Teendőid</div>
-                        <div class="hozzaad" id="addEvent">+</div>
-                    </div>
-                    <div class="teendok" id="allEvents">
-                        <!--teeendokTemplate.txt-->
+                     ugy fog mukodni hogy a felhasznalo hozza tud adni dolgokat, es mikor ranyom a plusszra akkor ki fog adni egy olyan kis feluletet mint a bejelentkezesnel es ott meg tudja adni a dolgokat, amik utana bekerulnek, azaz a beirt adatokkal letrehoz egy uj divet-->
+                    <div class="fejlec_feladatok">
+                        <div class="teendok_fejlec">
+                            <div style="border: none;"></div>
+                            <div class="fejlec_kerekites" style="background-color: #2d3250; color: #ffffff;">Rutin
+                                Teendőid</div>
+                            <div class="hozzaad" id="addEvent">+</div>
+                        </div>
+                        <div class="teendok">
+                            <div class="het">
+                                <div class="napok hetfo">
+                                    <div class="napi_fejlec hetfo_fejlec">
+                                        <h3>hetfo</h3>
+                                    </div>
+                                    <div class="napi_feladatok hetfo_feladatok">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="napok kedd">
+                                    <div class="napi_fejlec kedd_fejlec">
+                                        <h3>kedd</h3>
+                                    </div>
+                                    <div class="napi_feladatok kedd_feladatok">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="napok szerda">
+                                    <div class="napi_fejlec szerda_fejlec">
+                                        <h3>szerda</h3>
+                                    </div>
+                                    <div class="napi_feladatok szerda_feladatok">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="napok csutortok">
+                                    <div class="napi_fejlec csutortok_fejlec">
+                                        <h3>csutortok</h3>
+                                    </div>
+                                    <div class="napi_feladatok csutortok_feladatok">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="napok pentek">
+                                    <div class="napi_fejlec pentek_fejlec">
+                                        <h3>pentek</h3>
+                                    </div>
+                                    <div class="napi_feladatok pentek_feladatok">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="napok szombat">
+                                    <div class="napi_fejlec szombat_fejlec">
+                                        <h3>szombat</h3>
+                                    </div>
+                                    <div class="napi_feladatok szombat_feladatok">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="napok vasarnap">
+                                    <div class="napi_fejlec vasarnap_fejlec">
+                                        <h3>vasarnap</h3>
+                                    </div>
+                                    <div class="napi_feladatok vasarnap_feladatok">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="napok kovetkezo_het">
+                                    <div class="napi_fejlec kovi_het_fejlec">
+                                        <h3>kovetkezo het</h3>
+                                    </div>
+                                    <div class="napi_feladatok kovi_het_feladatok">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                        <input type="checkbox" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="fiok_deallitasok">
                     <div class="fiok_kep"></div>
-                    <div class="fiok_nev">HUNOR</div>
+                    <div class="fiok_nev">Fiok Nev</div>
                 </div>
             </div>
             <div class="minigane">
-                
+
             </div>
         </div>
     </div>
     <script src="script.js"></script>   <!--JS, hagyjad, nincs benne semmi logika, hogy miért itt kell lennie, feljebb viszed és felrobban -->
 </body>
+
 </html>
+
+<!--
+ez az elso terv volt de ujragondolom hogyan legyen 
+<div class="teendo" >
+                            <div class="teendo_nev" style="border: none;">
+                                <h6><input type="checkbox" name="" id=""></h6>
+                                <h4>teendo neve</h4>
+                                <div class="edit_mode">
+                                    <img src="images/pencil.png" alt="">
+                                </div>
+                                <div class="lenyito_gomb">
+                                    <img src="images/right-arrow.png" alt="">
+                                </div>
+                            </div>
+                            <div class="teendo_adatok" style="display: none;">
+                                <div class="teendo_leiras">teendo leirasa</div>
+                                <div class="teendo_">teendo kategoriaja</div>
+                                <div class="teendo_">teendo hatarideje</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="teendo">
+                            <div class="teendo_nev">
+                                <h6><input type="checkbox" name="" id=""></h6>
+                                <h4>teendo neve</h4>
+                                <div class="edit_mode">
+                                    <img src="images/pencil.png" alt="">
+                                </div>
+                                <div class="lenyito_gomb">
+                                    <img src="images/right-arrow.png" alt="">
+                                </div>
+                            </div>
+                            <div class="teendo_adatok" style="display: none;">
+                                <div class="teendo_leiras">teendo leirasa</div>
+                                <div class="teendo_">teendo kategoriaja</div>
+                                <div class="teendo_">teendo hatarideje</div>
+                            </div>
+                        </div>-->
