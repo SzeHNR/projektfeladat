@@ -10,9 +10,10 @@
     right: 0;
     top: 2rem;
     cursor: pointer;
-    height: fit-content;
-    width: 18rem;
-    background-color:bisque;
+    height:fit-content;
+    width: 18vw;
+    background-color: #f9b17a;
+    color: #2d3250;
     border-radius: 50px 0 0 50px;
     border: 2px solid var(--primary-color);
 }
@@ -23,6 +24,7 @@
     border-radius: 50%;
     margin: 0.5rem;
     cursor: pointer;
+    border: 2px solid #2d3250;
 }
 
 .fiok_nev{
@@ -34,4 +36,6 @@
     text-align: center;
     font-size: 1.5rem;
     margin: 0.5rem 0;
+    color: #2d3250;
+    font-family: cursive;
 }
