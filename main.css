@@ -1,0 +1,195 @@
+body {
+    padding: 0;
+}
+
+div {
+    padding: 5px;
+}
+
+.main_felulet {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    margin-top: 2rem;
+    height: 90%;
+}
+
+.fiok_deallitasok {
+    position: absolute;
+    right: 10px;
+    top: 4rem;
+}
+
+.main_ES_minigame {
+    height: 95vh;
+}
+
+.main .fejlec_kerekites {
+    display: flex;
+    height: 2rem;
+    width: 8rem;
+    top: 0;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.5rem;
+    background-color: rgb(184, 184, 184);
+    color: black;
+    border-radius: 0 0 15px 15px;
+    border: none;
+    margin-top: 0;
+}
+
+hr {
+    width: 60%;
+}
+
+.teendo {
+    margin: 0 2rem;
+}
+
+.hozzaad {
+    display: flex;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    justify-content: center;
+    align-items: center;
+    align-self: auto;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+input[type="checkbox"] {
+    width: 50px;
+    height: 20px;
+}
+
+.teendok {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 35rem;
+}
+
+.teendo_nev {
+    display: grid;
+    grid-template-columns: 0.2fr 4fr 0.5fr;
+    padding: 0;
+    position: relative;
+}
+
+.lenyito_gomb {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.lenyito_gomb>img {
+    position: relative;
+    margin: auto;
+    top: 50%;
+    transform: rotate(90deg);
+    height: 1rem;
+}
+
+.teendo_nev>h4 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.teendo_adatok {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.teendo_nev>.edit_mode {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.edit_mode>img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 60%;
+    right: 0;
+    height: 1rem;
+}
+
+.edit_mode,
+.lenyito_gomb {
+    border: none;
+}
+
+.teendo_adatok {
+    margin: 0 1rem;
+}
+
+.teendo_adatok>div {
+    text-align: center;
+}
+
+.teendo_adatok .teendo_leiras {
+    text-align: left;
+    grid-area: 1 / 1 / 3 / 2;
+    height: 5rem;
+}
+
+.teendok_fejlec {
+    position: relative;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 30px 0;
+}
+
+.fejlec_kerekites {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.5rem;
+    transform: translateX(-50%);
+    background-color: rgb(184, 184, 184);
+    color: black;
+    font-size: clamp(1rem, 1vw, 2rem);
+    border-radius: 0 0 15px 15px;
+    border: none;
+}
+
+.fejlec_kerekites::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 50%;
+    background-color: transparent;
+    box-shadow: 15px 0 0 0 rgb(184, 184, 184);
+}
+
+.fejlec_kerekites::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 50%;
+    background-color: transparent;
+    box-shadow: -15px 0 0 0 rgb(184, 184, 184);
+}

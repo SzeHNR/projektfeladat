@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bejelentkezes.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="minigame.css">
+    <link rel="stylesheet" href="fiokadatok.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="bejelentkezes_regisztracio" style="display: none;">
+            <div class="bejelentkezes">
+                <div class="bejelentkezes_header">bejelentkezes</div>
+                <p>felhasználó név</p>
+                <input type="text" name="felhasznalonev" id="felhasznalonev" placeholder="felhasználónév">
+                <p>jelszó</p>
+                <input type="password" name="jelszo" id="jelszo" placeholder="jelszó">
+                <p>email</p>
+                <input type="email" name="email" id="email" placeholder="email">
+                <div class="bejelentkezes_bejelentkezesgomb">bejelentkezes</div>
+                <p id="hiba"></p>
+                <div class="regisztracio_gomb">regisztracio</div>
+            </div>
+            <div class="regisztracio" style="display: none;">
+
+            </div>
+        </div>
+        <!--csak azert hogy a belallitasokat folyamatosan oda lehessen rakni-->
+        <div class="main_ES_minigame">
+            <div class="main_felulet">
+                <div class="oldalsav">
+                    <div class="elem1">napi</div>
+                    <div class="elem2">heti</div>
+                    <div class="elem3">havi</div>
+                    <div class="elem4">rutin</div>
+                </div>
+                <div class="main" style="border: none;">
+                    <!-- teendok 
+                     ugy fog mukodni hogy a felhasznalo hozza tud adni dolgokat, es mikor ranyom a plusszra akkor ki fog adni egy olyan kis feluletet mint a bejelentkezesnel es ott meg tudja adni a dolgokat, amik utana bekerulnek, azaz a beirt adatokkal letrehoz egy uj divet-->
+                    <div class="teendok_fejlec" >
+                        <div style="border: none;"></div>
+                        <div class="fejlec_kerekites">Rutin Teendőid</div>
+                        <div class="hozzaad">+</div>
+                    </div>
+                    <div class="teendok" >
+                        <div class="teendo" >
+                            <div class="teendo_nev" style="border: none;">
+                                <h6><input type="checkbox" name="" id=""></h6>
+                                <h4>teendo neve</h4>
+                                <div class="edit_mode">
+                                    <img src="images/pencil.png" alt="">
+                                </div>
+                                <div class="lenyito_gomb">
+                                    <img src="images/right-arrow.png" alt="">
+                                </div>
+                            </div>
+                            <div class="teendo_adatok" style="display: none;">
+                                <div class="teendo_leiras">teendo leirasa</div>
+                                <div class="teendo_">teendo kategoriaja</div>
+                                <div class="teendo_">teendo hatarideje</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="teendo">
+                            <div class="teendo_nev">
+                                <h6><input type="checkbox" name="" id=""></h6>
+                                <h4>teendo neve</h4>
+                                <div class="edit_mode">
+                                    <img src="images/pencil.png" alt="">
+                                </div>
+                                <div class="lenyito_gomb">
+                                    <img src="images/right-arrow.png" alt="">
+                                </div>
+                            </div>
+                            <div class="teendo_adatok" style="display: none;">
+                                <div class="teendo_leiras">teendo leirasa</div>
+                                <div class="teendo_">teendo kategoriaja</div>
+                                <div class="teendo_">teendo hatarideje</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fiok_deallitasok">
+                    <div class="fiok_kep"></div>
+                    <div class="fiok_nev">HUNOR</div>
+                </div>
+            </div>
+            <div class="minigane">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
