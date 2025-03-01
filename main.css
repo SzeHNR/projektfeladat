@@ -1,5 +1,6 @@
 body {
     padding: 0;
+    background-color: #222f36;
 }
 
 div {
@@ -60,6 +61,12 @@ hr {
     height: 3rem;
     cursor: pointer;
     border-radius: 50%;
+    background-color: #f9b17a;
+    box-shadow: 0 0 20px #f9b17a;
+    border: none;
+    font-weight: bold;
+    font-size: larger;
+
 }
 
 input[type="checkbox"] {
@@ -128,3 +135,26 @@ main {
     background-color: transparent;
     box-shadow: -15px 0 0 0 #2d3250;
 }
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #222f36; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888; 
+  }
