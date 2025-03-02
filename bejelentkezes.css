@@ -85,7 +85,7 @@ p {
     transform: translateX(-50%);
     background-color: #fff;
     color: #434769;
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(1rem, 4vw, 2rem);
     border-radius: 0 0 15px 15px;
     border: none;
 }
@@ -222,10 +222,8 @@ input[type=email]::placeholder {
 }
 
 .rememberMe>input[type="checkbox"]:checked {
-
     background-color: #f9b17a;
     box-shadow: 0 0 20px #f9b17a;
-
 }
 
 .elfelejtettemJelszavam {
@@ -233,7 +231,6 @@ input[type=email]::placeholder {
     align-items: center;
     padding-right: 1.5rem;
     transform: translateX(-2%);
-
 }
 
 .elfelejtettemJelszavam>a {

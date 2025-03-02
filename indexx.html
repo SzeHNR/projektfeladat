@@ -14,7 +14,7 @@
 
 <body>
     <div class="container">
-        <div class="bejelentkezes_regisztracio "> <!--flip card-->
+        <div class="bejelentkezes_regisztracio" > <!--flip card-->
             <div class="bejelentkezes_registracio_inner "> <!--flip card inner-->
                 <div class="bejelentkezes"><!--flip card front-->
                     <div class="bejelentkezes_header">Bejelentkezes</div>
@@ -46,8 +46,8 @@
                         <div onclick="regisztracio()" class="button regisztracio_gomb">regisztracio</div>
                     </div>
                 </div>
-            </div>
-            <script>
+                </div>
+                <script> //ez igazabol csak a gombok hozzaadnak egy classt amitol forognak
                 function regisztracio() {
                     document.querySelector(".bejelentkezes_regisztracio").classList.add("fordul_egesz");
                     document.querySelector(".bejelentkezes_registracio_inner").classList.add("fordul_inner");
@@ -55,7 +55,6 @@
                 function bejelentkezes() {
                     document.querySelector(".bejelentkezes_regisztracio").classList.remove("fordul_egesz");
                     document.querySelector(".bejelentkezes_registracio_inner").classList.remove("fordul_inner");
-
                 }
             </script>
         </div>
@@ -63,10 +62,12 @@
         <div class="main_ES_minigame">
             <div class="main_felulet">
                 <div class="oldalsav">
-                    <div class="elem1">napi</div>
-                    <div class="elem2">heti</div>
-                    <div class="elem3">havi</div>
-                    <div class="elem4">rutin</div>
+                    <div class="fejlec_kerekites">menu</div>
+                    <div class="nav-item home">home</div>
+                    <div class="nav-item napi_feladatok">napi feladatok</div>
+                    <div class="nav-item heti_feladatok">heti feladatok</div>
+                    <div class="nav-item rutin_feladatok">rutin</div>
+                    <div class="nav-item jegyzetek">jegyzetek</div>
                 </div>
                 <div class="main">
                     <!-- teendok 
@@ -74,8 +75,7 @@
                     <div class="fejlec_feladatok">
                         <div class="teendok_fejlec">
                             <div style="border: none;"></div>
-                            <div class="fejlec_kerekites" style="background-color: #2d3250; color: #ffffff;">Rutin
-                                Teendőid</div>
+                            <div class="fejlec_kerekites">Home</div>
                             <div class="hozzaad" id="addEvent">+</div>
                         </div>
                         <div class="teendok">
@@ -170,7 +170,6 @@
                 </div>
             </div>
             <div class="minigane">
-
             </div>
         </div>
     </div>
