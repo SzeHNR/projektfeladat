@@ -14,39 +14,60 @@
 
 <body>
     <div class="container">
-        <div class="bejelentkezes_regisztracio">
-            <div class="bejelentkezes">
-                <div class="bejelentkezes_header">Bejelentkezes</div>
-                <input type="text" name="felhasznalonev" id="felhasznalonev" placeholder="felhasználónév">
-                <input type="password" name="jelszo" id="jelszo" placeholder="jelszó">
-                <input type="email" name="email" id="email" placeholder="email">
-                <div class="rememberMe_elfelejtettemJelszavam">
-                    <div class="rememberMe">
-                        <input type="checkbox" name="" id=""><span class="checkbox"></span>
-                        <p>maradj bejelentkezve</p>
+        <div class="bejelentkezes_regisztracio" > <!--flip card-->
+            <div class="bejelentkezes_registracio_inner "> <!--flip card inner-->
+                <div class="bejelentkezes"><!--flip card front-->
+                    <div class="bejelentkezes_header">Bejelentkezes</div>
+                    <input type="text" name="felhasznalonev" id="felhasznalonev" placeholder="felhasználónév">
+                    <input type="password" name="jelszo" id="jelszo" placeholder="jelszó">
+                    <div class="rememberMe_elfelejtettemJelszavam">
+                        <div class="rememberMe">
+                            <input type="checkbox" name="" id=""><span class="checkbox"></span>
+                            <p>maradj bejelentkezve</p>
+                        </div>
+                        <div class="elfelejtettemJelszavam">
+                            <a href="">elfelejtettem a jelszavam</a>
+                        </div>
                     </div>
-                    <div class="elfelejtettemJelszavam">
-                        <a href="">elfelejtettem a jelszavam</a>
+                    <div class="regisztral_bejelentkezik_bejelentkezesnel">
+                        <div onclick="bejelentkezes()" class="button bejelentkezes_bejelentkezesgomb">bejelentkezes
+                        </div>
+                        <div onclick="regisztracio()" class="button regisztracio_gomb">regisztracio</div>
                     </div>
                 </div>
-                <div class="regisztral_bejelentkezik">
-                    <div onclick="bejelentkezes()" class="button bejelentkezes_bejelentkezesgomb">bejelentkezes</div>
-                    <div onclick="regisztracio()" class="button regisztracio_gomb">regisztracio</div>
+                <div class="regisztracio"> <!--flip card back-->
+                    <div class="bejelentkezes_header">Regisztracio</div>
+                    <input type="text" name="felhasznalonev" id="felhasznalonev_regisztracio"
+                        placeholder="felhasználónév">
+                    <input type="email" name="email" id="email" placeholder="email">
+                    <input type="password" name="jelszo" id="jelszo_regisztracio" placeholder="jelszó">
+                    <div class="regisztral_bejelentkezik_regisztracional">
+                        <div onclick="bejelentkezes()" class="button bejelentkezes_bejelentkezesgomb">bejelentkezes</div>
+                        <div onclick="regisztracio()" class="button regisztracio_gomb">regisztracio</div>
+                    </div>
                 </div>
-                
-            </div>
-            <div class="regisztracio" style="display: none;">
-
-            </div>
+                </div>
+                <script> //ez igazabol csak a gombok hozzaadnak egy classt amitol forognak
+                function regisztracio() {
+                    document.querySelector(".bejelentkezes_regisztracio").classList.add("fordul_egesz");
+                    document.querySelector(".bejelentkezes_registracio_inner").classList.add("fordul_inner");
+                }
+                function bejelentkezes() {
+                    document.querySelector(".bejelentkezes_regisztracio").classList.remove("fordul_egesz");
+                    document.querySelector(".bejelentkezes_registracio_inner").classList.remove("fordul_inner");
+                }
+            </script>
         </div>
         <!--csak azert hogy a belallitasokat folyamatosan oda lehessen rakni-->
         <div class="main_ES_minigame">
             <div class="main_felulet">
                 <div class="oldalsav">
-                    <div class="elem1">napi</div>
-                    <div class="elem2">heti</div>
-                    <div class="elem3">havi</div>
-                    <div class="elem4">rutin</div>
+                    <div class="fejlec_kerekites">menu</div>
+                    <div class="nav-item home">home</div>
+                    <div class="nav-item napi_feladatok">napi feladatok</div>
+                    <div class="nav-item heti_feladatok">heti feladatok</div>
+                    <div class="nav-item rutin_feladatok">rutin</div>
+                    <div class="nav-item jegyzetek">jegyzetek</div>
                 </div>
                 <div class="main">
                     <!-- teendok 
@@ -54,8 +75,7 @@
                     <div class="fejlec_feladatok">
                         <div class="teendok_fejlec">
                             <div style="border: none;"></div>
-                            <div class="fejlec_kerekites" style="background-color: #2d3250; color: #ffffff;">Rutin
-                                Teendőid</div>
+                            <div class="fejlec_kerekites">Home</div>
                             <div class="hozzaad" id="addEvent">+</div>
                         </div>
                         <div class="teendok">
@@ -150,11 +170,11 @@
                 </div>
             </div>
             <div class="minigane">
-
             </div>
         </div>
     </div>
-    <script src="script.js"></script>   <!--JS, hagyjad, nincs benne semmi logika, hogy miért itt kell lennie, feljebb viszed és felrobban -->
+    <script src="script.js"></script>
+    <!--JS, hagyjad, nincs benne semmi logika, hogy miért itt kell lennie, feljebb viszed és felrobban -->
 </body>
 
 </html>

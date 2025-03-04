@@ -39,3 +39,9 @@
     color: #2d3250;
     font-family: cursive;
 }
+
+@media screen and (max-width: 768px) {
+    .fiok_nev{
+        display: none;
+    }
+}

@@ -7,16 +7,7 @@ div {
     padding: 5px;
 }
 
-.bejelentkezes_regisztracio {
-    border: none;
-    text-align: center;
-    margin: 10rem auto;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 23rem;
-    width: 33rem;
-}
+
 
 input {
     width: 80%;
@@ -32,15 +23,55 @@ p {
     position: relative;
 }
 
-.bejelentkezes {
+.bejelentkezes_regisztracio {
+    padding: 0;
+    border: none;
+    text-align: center;
+    margin: 10rem auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50.5rem;
+    width: 29rem;
+    perspective: 900px;
+}
+
+.bejelentkezes_registracio_inner{ /* ez a kartya forgopontja*/
+    border: none;
     position: relative;
+    padding: 0;
+    width: 100%;
+    height: 60%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.fordul_egesz .fordul_inner{
+    transform: rotateY(180deg);
+}
+
+.bejelentkezes, .regisztracio{ /*ez a kartya eleje*/
+    border: 2px solid white;
+    position: absolute;
     padding: 4rem 1.5rem 1rem 1.5rem;
-    border: 2px solid var(--primary-color);
+    height: 25rem;
     background-color: #434769;
     border-radius: 15px;
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
-    color: white;
+    box-shadow: 0 10px 15px -1px rgba(0, 0, 0, 0.2);
+    color: #2d3250;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
 
+.bejelentkezes, .regisztracio{
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+.regisztracio{
+    transform: rotateY(180deg);
 }
 
 .bejelentkezes_header {
@@ -52,9 +83,9 @@ p {
     justify-content: center;
     padding: 0.6rem 1.5rem;
     transform: translateX(-50%);
-    background-color: white;
-    color: black;
-    font-size: clamp(1rem, 2vw, 2rem);
+    background-color: #fff;
+    color: #434769;
+    font-size: clamp(1rem, 4vw, 2rem);
     border-radius: 0 0 15px 15px;
     border: none;
 }
@@ -68,7 +99,7 @@ p {
     height: 30px;
     border-top-right-radius: 50%;
     background-color: transparent;
-    box-shadow: 15px 0 0 0 white;
+    box-shadow: 15px 0 0 0 #fff;
 }
 
 .bejelentkezes_header::after {
@@ -80,12 +111,30 @@ p {
     height: 30px;
     border-top-left-radius: 50%;
     background-color: transparent;
-    box-shadow: -15px 0 0 0 white;
+    box-shadow: -15px 0 0 0 #fff;
 }
 
-.regisztral_bejelentkezik {
+.regisztral_bejelentkezik_bejelentkezesnel {
+    position: absolute;
+    width: 85%;
+    align-items: center;
+    bottom: 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    gap: 20px;
+    border: none;
+}
+
+.regisztral_bejelentkezik_regisztracional {
+    position: absolute;
+    width: 85%;
+    align-items: center;
+    bottom: 5px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
     margin-top: 2rem;
     margin-bottom: 1rem;
     align-items: center;
@@ -95,6 +144,10 @@ p {
 
 #felhasznalonev {
     margin-top: 5rem;
+}
+
+#felhasznalonev_regisztracio{
+    margin-top: 2rem;
 }
 
 .button {
@@ -110,6 +163,7 @@ p {
 input[type=text],
 input[type=password],
 input[type=email] {
+    height: 2rem;
     border: none;
     background-color: #676f9d;
     color: white;
@@ -143,11 +197,13 @@ input[type=email]::placeholder {
     border: none;
     display: flex;
     align-items: center;
+    transform: translateX(10%);
 }
 
 .rememberMe>p {
     color: #676f9d;
     text-decoration: none;
+    transform: translateY(-37%);
 }
 
 .rememberMe>input[type=checkbox] {
@@ -160,24 +216,32 @@ input[type=email]::placeholder {
     color: currentColor;
     width: 1.15em;
     height: 1.15em;
-    border: 0.15em solid currentColor;
+    border: none;
     border-radius: 0.15em;
     transform: translateY(-0.075em);
 }
 
 .rememberMe>input[type="checkbox"]:checked {
-
-    background-color: #676f9d;
-
+    background-color: #f9b17a;
+    box-shadow: 0 0 20px #f9b17a;
 }
 
 .elfelejtettemJelszavam {
     border: none;
     align-items: center;
     padding-right: 1.5rem;
+    transform: translateX(-2%);
 }
 
 .elfelejtettemJelszavam>a {
     color: #676f9d;
     text-decoration: none;
+}
+
+.elfelejtettemJelszavam a:hover{
+    text-shadow: 0 0 10px #676f9d;
+}
+
+.regisztracio{ /*ez a kartya hatulja*/
+    position: absolute;
 }

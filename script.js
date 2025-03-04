@@ -1,4 +1,18 @@
-const teendokLista = [];
+//A regiszrálásnál a jelszó megadós field "jelszo_regisztracio" lett    NEM tartalmazza a sima "jelszo" ID-t
+//Átmenetileg kikommentezve: 118. sor és új funcion-ök
+var teendokLista = [];      //lehet, hogy simán lehet, hogy maradhatna const, de inkább átrakom var-ra (hisz változik az értéke)
+var regiszraltFiokok = [];
+var selectedFiok;
+
+//Van jótár átmeneti in- és output megoldás (lényegében az összes alert/prompt), majd kérnék hozzá frontend-en helyet, mert nem akarok "rossz" helyre írni
+
+class fiok{
+    constructor(uName, email, pWord){
+        this.uName = uName;
+        this.email = email;
+        this.pWord = pWord;
+    }
+}
 class Teendo {
     constructor(nev, leiras, datum) {
         this.nev = nev;
@@ -101,7 +115,54 @@ function teendokFrissit() {
         });
     }
 }
+//Kész, de ÁTMENETILEG ki van kommentezve, mert akadályozza a "flip animációt".     Kéne neki egy "üres field" és "flip" közti megkülömböztetés
+/*
+function regisztracio()
+{
+    const inUName = document.getElementById("felhasznalonev_regisztracio").textContent;
+    const inEmail = document.getElementById("email").textContent;
+    const inPWord = document.getElementById("jelszo_regisztracio").textContent;
+    if(inUName && inEmail && inPWord){
+        if(!regiszraltFiokok.find(acc => acc.email === inEmail) && !regiszraltFiokok.find(acc => acc.uName === inUName)){
+            regiszraltFiokok.push(new fiok(inUName, inEmail, inPWord));
+        }
+        else if(regiszraltFiokok.find(acc => acc.email === inEmail)){
+            alert("A megadott email címmel már regisztráltak");
+        }
+        else{
+            alert("Az adott névvel már regisztráltak")
+        }
+    }
+    //else{
+        //alert("Hiányzó adat");  //majd kéretik megcsinálni szebben frontend-el   (pofázik az, aki szimplán lusta)
+    //}
+}
 
+function bejelentkezes(){
+    const inUName = document.getElementById("felhasznalonev").textContent;
+    const inPWord = document.getElementById("jelszo").textContent;
+    if(inUName && inPWord){
+        const talaltUname = regiszraltFiokok.find(acc => acc.uName === inUName);
+        const talaltPWord = regiszraltFiokok.find(acc => acc.pWord === pWord);
+        if(talaltPWord && talaltUname){
+            if(talaltPWord.uName === talaltUname.uName){
+                selectedFiok = talaltUname;
+            }
+            else if(talaltUname !== null && talaltPWord){
+                alert(`Helytelen jelszó a(z) ${talaltUname.uName} fiókhoz`);    //nagy eséllyel ki lesz véve ez az else if, vagy "progressive" lesz a log-in, de azt meg kell csinálni a regisztárlásnál is (max akkor áljunk neki, ha túlságosan ráérünk)
+            }
+            else{
+                alert("Helytelen felhasználónév vagy jelszó")
+            }
+        }
+        else{
+            alert("Nem található az adott fiók");
+        }
+    }
+    //else{
+        //alert("Hiányzó adat");
+    //}
+}*/
 document.querySelector("#addEvent").addEventListener("click", () => {
     const nev = prompt("Teendő neve:");
     const leiras = prompt("Teendő leírása:");

@@ -3,19 +3,24 @@
     overflow-x: hidden;
     height: calc(100% - 10%);
     border: none;
+    border-left: 2px solid 424769;
 }
+
+
+
 
 .napok{
     margin-bottom: 2rem;
     height: 10vw;
     overflow-y: scroll;
     overflow-x: hidden;
+    border: none;
 }
 
 .het{
     height: fit-content;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .napi_fejlec{
@@ -23,15 +28,143 @@
     background-color: #424769;
     color: white;
     border-radius: 15px 15px 0 0 ;
+    border: none;
 }
 
 .napi_feladatok{
     border: none;
     display: grid;
+    border-left: 2px solid #424769;
+
 }
 
 .kovetkezo_het{
-    grid-column: 2/4;
+    grid-column: 3/5;
+}
+
+@media screen and (max-width: 768px) {
+    .main_felulet {
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+.oldalsav{
+    position: relative;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    margin-right: 2rem;
+}
+
+.oldalsav .nav-item{
+    position: relative;
+    border: 2px solid white;
+    color: #fff;
+    margin-top: 1.5rem;
+    padding: 2rem;
+    border: none;
+    border-radius: 15px;
+}
+
+.oldalsav .home{
+    margin-top: 4rem;
+}
+
+.oldalsav .nav-item:hover{
+    border-bottom: 3px solid #f9b17a;
+    color: white;
+    outline: none;
+    box-shadow: 0 40px 100px -10px #f9b17a;
+}
+
+.oldalsav .nav-item:focus{
+    border-left: 2px solid #f9b17a;
+    color: white;
+    outline: none;
+    box-shadow: -20px 0 20px -10px #f9b17a;
 }
 
 
+.teendok {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 35rem;
+    border: 1px solid #fff;
+}
+
+.teendo_nev {
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.2fr 4fr 0.5fr;
+    padding: 0;
+    border: 1px solid #fff;
+    color: #fff ;
+}
+
+.lenyito_gomb {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 1.5rem;
+    border: 1px solid #fff;
+}
+
+.lenyito_gomb>img {
+    position: relative;
+    margin: auto;
+    
+    transform: rotate(90deg);
+    height: 3rem;
+    border: 1px solid #fff;
+}
+
+.teendo_nev>h4 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.teendo_adatok {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    border: 1px solid white;
+}
+
+.teendo_nev>.edit_mode {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.edit_mode>img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 60%;
+    right: 0;
+    height: 1rem;
+}
+
+.edit_mode,
+.lenyito_gomb {
+    border: none;
+}
+
+.teendo_adatok {
+    margin: 0 1rem;
+}
+
+.teendo_adatok>div {
+    text-align: center;
+}
+
+.teendo_adatok .teendo_leiras {
+    text-align: left;
+    grid-area: 1 / 1 / 3 / 2;
+    height: 5rem;
+}
