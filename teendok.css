@@ -1,61 +1,199 @@
-.teendok {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: calc(100% - 10%);
-    border: none;
-    border-left: 2px solid 424769;
+table{
+    border: #fff;
+    color: #fff;
 }
 
-
-
-
-.napok{
-    margin-bottom: 2rem;
-    height: 10vw;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    border: none;
+td, th{
+    border: 1px solid #ddd;
+    width: 2rem;
+    position: relative;
 }
 
-.het{
-    height: fit-content;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-}
-
-.napi_fejlec{
-    text-align: center;
+th{
     background-color: #424769;
-    color: white;
-    border-radius: 15px 15px 0 0 ;
+    color: #fff;
+    padding: 1.3rem;
+}
+
+.elsoTH{
+    position: relative;
+    width: 10rem;
+}
+.elsoTH_szoveg{
+    transform: translateY(20%);
+}
+
+.hozzaad_habitus{
+    z-index: 1;
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 15px;
+    right: -15px;
+    background-color: #f9b17a;
     border: none;
+    font-weight: bolder;
+    color: black;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.hozzaad_habitus img{
+    height: 20px;
+    display: flex;
+    transform: translate(-15%, -16%);
 }
 
-.napi_feladatok{
-    border: none;
-    display: grid;
-    border-left: 2px solid #424769;
-
+.eltavolit_megjelenit input{
+    width: 70%;
 }
 
-.kovetkezo_het{
-    grid-column: 3/5;
-}
-
-@media screen and (max-width: 768px) {
-    .main_felulet {
-        grid-template-columns: 1fr 3fr;
+.eltavolit_megjelenit:hover{
+    .eltavolit_habitus{
+        display: block;
     }
 }
 
-.oldalsav{
+.eltavolit_habitus{
+    display: none;
+    z-index: 1;
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+    right: 3px;
+    background-color: #f9897a;
+    border: none;
+    color: black;
+    border-radius: 1rem;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.eltavolit_habitus img{
+    height: 20px;
+    transform: translate(-17%, 0%);
+    rotate: 45deg;
+}
+
+
+.tablazat_rutin{
+    background-color: #dddddd00;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color:#fff;
+    font-size: 1vw;
+}
+
+.tablazat_rutin:focus{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #fff;
+}
+
+.napok {
+    margin-bottom: 2rem;
+    height: fit-content;
+    border: none;
+}
+
+.het {
+    position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    border: 1px solid red;
+    height: fit-content;
+}
+
+.napi_fejlec {
+    text-align: center;
+    background-color: #424769;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    border: none;
+}
+
+.napi_feladatok {
+    border: none;
+    display: grid;
+    border-left: 2px solid #424769;
+    grid-template-columns: 1fr 9fr;
+}
+
+.napi_feladatok > input[type=text]{
+    color: #fff;
+    background-color: #ffffff00;
+    border: none;
+    height: 1px;
+    font-size: 0.8vw;
+}
+.napi_feladatok > input[type=text]:focus{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #74747479;
+}
+.napi_feladatok > input[type=text]::placeholder{
+    color: #fff;
+    height: 10px;
+}
+   
+.kovetkezo_het {
+    grid-column: 3/5;
+}
+
+.menuicon{
+    height: 2rem;
+    margin-left: 2rem;
+    position: absolute;
+    top: 0px;
+    left: -33px;
+    background-color: #fff;
+    padding: 0.5rem;
+    border-radius: 10px 0 10px 0;
+    display: none;
+    cursor: pointer;
+}
+
+.menuicon_div{
+    display: none;
+    cursor: pointer;
+}
+
+.menuicon_div::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 37px;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 50%;
+    background-color: transparent;
+    box-shadow: 15px 0 0 0 #fff;
+    transform: rotateY(190deg); 
+}
+
+.menuicon_div::after {
+    content: "";
+    position: absolute;
+    top: 42px;
+    left: -5px;
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 50%;
+    background-color: transparent;
+    box-shadow: 0 -15px 0 0 #fff;
+    z-index: -1;
+}
+
+.oldalsav {
+    border: none;
     position: relative;
     border: 2px solid #fff;
     border-radius: 15px;
     margin-right: 2rem;
 }
 
-.oldalsav .nav-item{
+.oldalsav .nav-item {
     position: relative;
     border: 2px solid white;
     color: #fff;
@@ -65,18 +203,18 @@
     border-radius: 15px;
 }
 
-.oldalsav .home{
+.oldalsav .home {
     margin-top: 4rem;
 }
 
-.oldalsav .nav-item:hover{
-    border-bottom: 3px solid #f9b17a;
+.oldalsav .nav-item:hover {
+    background-color: #42424272;
     color: white;
     outline: none;
-    box-shadow: 0 40px 100px -10px #f9b17a;
+    cursor: pointer;
 }
 
-.oldalsav .nav-item:focus{
+.oldalsav .nav-item:focus {
     border-left: 2px solid #f9b17a;
     color: white;
     outline: none;
@@ -87,8 +225,8 @@
 .teendok {
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 35rem;
-    border: 1px solid #fff;
+    height:fit-content;
+    border: 1px solid green;
 }
 
 .teendo_nev {
@@ -97,7 +235,7 @@
     grid-template-columns: 0.2fr 4fr 0.5fr;
     padding: 0;
     border: 1px solid #fff;
-    color: #fff ;
+    color: #fff;
 }
 
 .lenyito_gomb {
@@ -113,7 +251,7 @@
 .lenyito_gomb>img {
     position: relative;
     margin: auto;
-    
+
     transform: rotate(90deg);
     height: 3rem;
     border: 1px solid #fff;
@@ -167,4 +305,53 @@
     text-align: left;
     grid-area: 1 / 1 / 3 / 2;
     height: 5rem;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .main_felulet {
+        grid-template-columns: 1fr 5fr;
+    }
+
+    .het {
+        grid-template-columns: 1fr;
+        height: fit-content;
+    }
+
+    .kovetkezo_het {
+        grid-column: 1/2;
+    }
+
+    .menuicon{
+        display: block;
+    }
+    .menuicon_div{
+        display: block;
+    }
+    .menuszoveg{
+        display: none;
+    }
+    .oldalsav{
+        display: none;
+        top: 12px;
+        left: 58px;
+        position: absolute;
+        z-index: 1;
+        background-color: #424769;
+    }
+    .main_felulet {
+        position: relative;
+        grid-template-columns: 1fr;
+    }
+
+    .teendok{
+        position: relative;
+        height:90%;
+    }
+ 
+    .main{
+        position: relative;
+        height: 45%;
+    }
 }

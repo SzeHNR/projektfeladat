@@ -115,54 +115,82 @@ function teendokFrissit() {
         });
     }
 }
-//Kész, de ÁTMENETILEG ki van kommentezve, mert akadályozza a "flip animációt".     Kéne neki egy "üres field" és "flip" közti megkülömböztetés
-/*
-function regisztracio()
+
+function regisztracio(mitCsinaljon)
 {
-    const inUName = document.getElementById("felhasznalonev_regisztracio").textContent;
-    const inEmail = document.getElementById("email").textContent;
-    const inPWord = document.getElementById("jelszo_regisztracio").textContent;
-    if(inUName && inEmail && inPWord){
-        if(!regiszraltFiokok.find(acc => acc.email === inEmail) && !regiszraltFiokok.find(acc => acc.uName === inUName)){
-            regiszraltFiokok.push(new fiok(inUName, inEmail, inPWord));
-        }
-        else if(regiszraltFiokok.find(acc => acc.email === inEmail)){
-            alert("A megadott email címmel már regisztráltak");
+    if(mitCsinaljon === "keep")
+    {
+        const wrap = document.querySelector(".regisztracio");
+        if(wrap){
+            console.log(":(");
         }
         else{
-            alert("Az adott névvel már regisztráltak")
+            console.log("Létezik VÉGRE!");
         }
-    }
-    //else{
-        //alert("Hiányzó adat");  //majd kéretik megcsinálni szebben frontend-el   (pofázik az, aki szimplán lusta)
-    //}
-}
-
-function bejelentkezes(){
-    const inUName = document.getElementById("felhasznalonev").textContent;
-    const inPWord = document.getElementById("jelszo").textContent;
-    if(inUName && inPWord){
-        const talaltUname = regiszraltFiokok.find(acc => acc.uName === inUName);
-        const talaltPWord = regiszraltFiokok.find(acc => acc.pWord === pWord);
-        if(talaltPWord && talaltUname){
-            if(talaltPWord.uName === talaltUname.uName){
-                selectedFiok = talaltUname;
+        const inUName = wrap.querySelector(".felhasznalonev_regisztracio").value;
+        const inEmail = wrap.querySelector(".email").value;
+        const inPWord = wrap.querySelector(".jelszo").value;
+        if(inUName && inEmail && inPWord){
+            if(!regiszraltFiokok.find(acc => acc.email === inEmail) && !regiszraltFiokok.find(acc => acc.uName === inUName)){
+                regiszraltFiokok.push(new fiok(inUName, inEmail, inPWord));
+                alert("Regisztáció sikeres");
             }
-            else if(talaltUname !== null && talaltPWord){
-                alert(`Helytelen jelszó a(z) ${talaltUname.uName} fiókhoz`);    //nagy eséllyel ki lesz véve ez az else if, vagy "progressive" lesz a log-in, de azt meg kell csinálni a regisztárlásnál is (max akkor áljunk neki, ha túlságosan ráérünk)
+            else if(regiszraltFiokok.find(acc => acc.email === inEmail)){
+                alert("A megadott email címmel már regisztráltak");
             }
             else{
-                alert("Helytelen felhasználónév vagy jelszó")
+                alert("Az adott névvel már regisztráltak")
             }
         }
+    }
+    else{
+        console.log("Show:\tregisztracio");
+        document.querySelector(".bejelentkezes_regisztracio").classList.add("fordul_egesz");
+        document.querySelector(".bejelentkezes_registracio_inner").classList.add("fordul_inner");
+        //alert("Hiányzó adat");
+    }
+}
+
+function bejelentkezes(mitCsinaljon)
+{
+    if(mitCsinaljon === "keep")
+    {
+        const wrap = document.querySelector(".bejelentkezes");
+        if(wrap){
+            console.log(":( ");
+        }
         else{
-            alert("Nem található az adott fiók");
+            console.log("Létezik VÉGRE!");
+        }
+        const inUName = wrap.querySelector(".felhasznalonev").value;
+        const inPWord = wrap.querySelector(".jelszo").value;
+        if(inUName && inPWord){
+            const talaltUname = regiszraltFiokok.find(acc => acc.uName === inUName);
+            const talaltPWord = regiszraltFiokok.find(acc => acc.pWord === inPWord);
+            if(talaltPWord && talaltUname){
+                if(talaltPWord.uName === talaltUname.uName){
+                    selectedFiok = talaltUname;
+                    alert("Sikeres belépés");
+                }
+                else if(talaltUname !== null && talaltPWord){
+                    alert(`Helytelen jelszó a(z) ${talaltUname.uName} fiókhoz`);    //nagy eséllyel ki lesz véve ez az else if, vagy "progressive" lesz a log-in, de azt meg kell csinálni a regisztárlásnál is (max akkor áljunk neki, ha túlságosan ráérünk)
+                }
+                else{
+                    alert("Helytelen felhasználónév vagy jelszó")
+                }
+            }
+            else{
+                alert("Nem található az adott fiók");
+            }
         }
     }
-    //else{
+    else{
+        console.log("Show:\tbejelentkezes");
+        document.querySelector(".bejelentkezes_regisztracio").classList.remove("fordul_egesz");
+        document.querySelector(".bejelentkezes_registracio_inner").classList.remove("fordul_inner");
         //alert("Hiányzó adat");
-    //}
-}*/
+    }
+}
 document.querySelector("#addEvent").addEventListener("click", () => {
     const nev = prompt("Teendő neve:");
     const leiras = prompt("Teendő leírása:");
