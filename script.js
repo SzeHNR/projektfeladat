@@ -191,6 +191,7 @@ function bejelentkezes(mitCsinaljon)
         //alert("Hiányzó adat");
     }
 }
+
 document.querySelector("#addEvent").addEventListener("click", () => {
     const nev = prompt("Teendő neve:");
     const leiras = prompt("Teendő leírása:");
@@ -201,4 +202,50 @@ document.querySelector("#addEvent").addEventListener("click", () => {
         //document.querySelector(".teendok").appendChild(teendo.addHMTLresz());
         teendokFrissit();
     }
+
+//Ő csak ide került?
 });
+
+//ez a hamburgermenu 
+function burgermenu() {
+    var element = document.querySelector(".oldalsav");
+    element.style.display = element.style.display === "block" ? "none" : "block";
+}
+
+//ez a rutintablazat 
+var table = document.querySelector(".habitus_table");
+function habitus_add() {
+    var row = table.insertRow();
+    var cell1 = row.insertCell();
+    var cell2 = row.insertCell();
+    var cell3 = row.insertCell();
+    var cell4 = row.insertCell();
+    var cell5 = row.insertCell();
+    var cell6 = row.insertCell();
+    var cell7 = row.insertCell();
+    var cell8 = row.insertCell();
+
+    var minusButton = document.createElement("div");
+    cell1.className = "eltavolit_megjelenit"
+    minusButton.className = "eltavolit_habitus";
+    minusButton.innerHTML = "<img src='images/plus.png' alt=''>";
+    minusButton.addEventListener("click", function () {
+        habitus_minus(this);
+    });
+    var inputField = document.createElement("input");
+    inputField.className = "tablazat_rutin";
+
+    cell1.appendChild(minusButton);
+    cell1.appendChild(inputField);
+    cell2.innerHTML = "";
+    cell3.innerHTML = "";
+    cell4.innerHTML = "";
+    cell5.innerHTML = "";
+    cell6.innerHTML = "";
+    cell7.innerHTML = "";
+    cell8.innerHTML = "";
+}
+function habitus_minus(element) {
+    var row = element.parentNode.parentNode;
+    table.deleteRow(row.rowIndex);
+}
