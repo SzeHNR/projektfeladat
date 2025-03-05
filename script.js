@@ -1,5 +1,16 @@
 //A regiszrálásnál a jelszó megadós field "jelszo_regisztracio" lett    NEM tartalmazza a sima "jelszo" ID-t
 //Átmenetileg kikommentezve: 118. sor és új funcion-ök
+
+
+/*      itt lesznek a "feladatok"
+    (noveremet megkertem a novenyek megrajzolasara ugyhogy a jatekka is elkezdhetunk majd elobb utobb ADDIG VISZONT)
+        1 - lokalisan probald elmenteni a felhasznalo altal irt valtoztatasokat
+        2 - ha van otleted hogy egy kis naptart hogyan lehetne letrehozni akkor a naptar helyere nyugodtan tesztelgethetsz akar frontendet is  
+
+*/
+
+
+
 var teendokLista = [];      //lehet, hogy simán lehet, hogy maradhatna const, de inkább átrakom var-ra (hisz változik az értéke)
 var regiszraltFiokok = [];
 var selectedFiok;
@@ -9,7 +20,7 @@ var selectedFiok;
 class fiok{
     constructor(uName, email, pWord){
         this.uName = uName;
-        this.email = email;
+        this.email = email; 
         this.pWord = pWord;
     }
 }
@@ -171,6 +182,7 @@ function bejelentkezes(mitCsinaljon)
                 if(talaltPWord.uName === talaltUname.uName){
                     selectedFiok = talaltUname;
                     alert("Sikeres belépés");
+                    document.querySelector(".bejelentkezes_regisztracio").style.display="none";
                 }
                 else if(talaltUname !== null && talaltPWord){
                     alert(`Helytelen jelszó a(z) ${talaltUname.uName} fiókhoz`);    //nagy eséllyel ki lesz véve ez az else if, vagy "progressive" lesz a log-in, de azt meg kell csinálni a regisztárlásnál is (max akkor áljunk neki, ha túlságosan ráérünk)
@@ -202,3 +214,48 @@ document.querySelector("#addEvent").addEventListener("click", () => {
         teendokFrissit();
     }
 });
+
+
+//ez a hamburgermenu 
+function burgermenu() {
+    var element = document.querySelector(".oldalsav");
+    element.style.display = element.style.display === "block" ? "none" : "block";
+}
+
+//ez a rutintablazat 
+var table = document.querySelector(".habitus_table");
+function habitus_add() {
+    var row = table.insertRow();
+    var cell1 = row.insertCell();
+    var cell2 = row.insertCell();
+    var cell3 = row.insertCell();
+    var cell4 = row.insertCell();
+    var cell5 = row.insertCell();
+    var cell6 = row.insertCell();
+    var cell7 = row.insertCell();
+    var cell8 = row.insertCell();
+
+    var minusButton = document.createElement("div");
+    cell1.className = "eltavolit_megjelenit"
+    minusButton.className = "eltavolit_habitus";
+    minusButton.innerHTML = "<img src='images/plus.png' alt=''>";
+    minusButton.addEventListener("click", function () {
+        habitus_minus(this);
+    });
+    var inputField = document.createElement("input");
+    inputField.className = "tablazat_rutin";
+
+    cell1.appendChild(minusButton);
+    cell1.appendChild(inputField);
+    cell2.innerHTML = "";
+    cell3.innerHTML = "";
+    cell4.innerHTML = "";
+    cell5.innerHTML = "";
+    cell6.innerHTML = "";
+    cell7.innerHTML = "";
+    cell8.innerHTML = "";
+}
+function habitus_minus(element) {
+    var row = element.parentNode.parentNode;
+    table.deleteRow(row.rowIndex);
+}

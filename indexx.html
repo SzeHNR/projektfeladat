@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-Do List</title>
     <link rel="stylesheet" href="bejelentkezes.css">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="minigame.css">
     <link rel="stylesheet" href="teendok.css">
     <link rel="stylesheet" href="fiokadatok.css">
+    <link rel="stylesheet" href="mobilnezet.css">
 </head>
 
 <body>
     <div class="container">
-        <div class="bejelentkezes_regisztracio"> <!--flip card-->
+        <div class="bejelentkezes_regisztracio" style="display: none;"> <!--flip card   style="display: none;" -->
             <div class="bejelentkezes_registracio_inner "> <!--flip card inner-->
                 <div class="bejelentkezes"><!--flip card front-->
                     <div class="bejelentkezes_header">Bejelentkezes</div>
@@ -32,20 +33,23 @@
                     </div>
                     <p class="hibauzenet" style="text-align:center; color: wheat;"></p>
                     <div class="regisztral_bejelentkezik_bejelentkezesnel">
-                        <div onclick="bejelentkezes('keep')" class="button bejelentkezes_bejelentkezesgomb">bejelentkezes
+                        <div onclick="bejelentkezes('keep')" class="button bejelentkezes_bejelentkezesgomb">
+                            bejelentkezes
                         </div>
                         <div onclick="regisztracio('back')" class="button regisztracio_gomb">regisztracio</div>
                     </div>
                 </div>
                 <div class="regisztracio"> <!--flip card back-->
                     <div class="bejelentkezes_header">Regisztracio</div>
-                    <input type="text" name="felhasznalonev" class="felhasznalonev_regisztracio" placeholder="felhasználónév">
+                    <input type="text" name="felhasznalonev" class="felhasznalonev_regisztracio"
+                        placeholder="felhasználónév">
                     <input type="email" name="email" class="email" placeholder="email">
                     <input type="password" name="jelszo" class="jelszo" placeholder="jelszó">
                     <p class="hibauzenet" style="text-align:center; color: wheat;"></p>
                     <div class="regisztral_bejelentkezik_regisztracional">
-                        <div onclick="bejelentkezes('back')" class="button bejelentkezes_bejelentkezesgomb">bejelentkezes
-                        </div>  
+                        <div onclick="bejelentkezes('back')" class="button bejelentkezes_bejelentkezesgomb">
+                            bejelentkezes
+                        </div>
                         <div onclick="regisztracio('keep')" class="button regisztracio_gomb">regisztracio</div>
                     </div>
                 </div>
@@ -111,6 +115,20 @@
                                         <td></td>
                                     </tr>
                                 </table>
+                                <div class="priority_feladat">
+                                    <div class="elsodleges_feladatok">
+                                        <h3>prioritas</h3>
+                                        <input type="checkbox" name="" id=""><input type="text">
+                                        <input type="checkbox" name="" id=""><input type="text">
+                                        <input type="checkbox" name="" id=""><input type="text">
+                                    </div>
+                                    <div class="jegyzetek">
+                                        JEGYZETEK
+                                    </div>
+                                </div>
+                                <div class="naptar"> <!--ITT A NAPTAR RESZ HA BARMI OTLET VAN-->
+                                    NAPTAR
+                                </div>
                             </div>
                             <div class="het">
                                 <div class="hozzaad" id="addEvent">+</div>
@@ -194,15 +212,44 @@
                                         <input type="checkbox" name="" id=""><input type="text">
                                     </div>
                                 </div>
+                                <div class="viragallapot" style="color: white;">
+                                    VIRAG ALLAPOT
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="fiok_deallitasok">
+
+                <div class="fiok_beallitasok" onclick="fiokadatok_KiBe()">
                     <div class="fiok_kep"></div>
                     <div class="fiok_nev">Fiok Nev</div>
                 </div>
+                <div class="fiok_adatok" style="display: none;">
+                    <div class="vissza" onclick="fiokadatok_KiBe()">>>></div>
+                    <div class="fiok_kep_nagy"></div>
+                    <div class="fiok_nev_nagy">Fiok Nev</div>
+                    <div class="adatok">
+                        <div class="adatok_email">EMAILCIM</div>
+                        <div class="adatok_jelszo_valtoztatas">JELSZO VALTOZTATAS</div>
+                        <div class="adatok_kijelentkzes">KIJELENTKEZES</div>
+                    </div>
+                </div>
             </div>
+            <script>
+                function fiokadatok_KiBe() {
+                    var adatok_alaphelyzet = document.querySelector(".fiok_beallitasok");
+                    var adatok_minden =  document.querySelector(".fiok_adatok");
+                    if (adatok_minden.style.display == "none"){
+                        adatok_minden.style.display = "grid";
+                        adatok_alaphelyzet.style.display = "none";
+                    }
+                    else{
+                        adatok_minden.style.display = "none";
+                        adatok_alaphelyzet.style.display = "grid";
+                    }
+                }
+            </script>
+
             <div class="minigane">
             </div>
         </div>
