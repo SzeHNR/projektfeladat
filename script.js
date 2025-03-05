@@ -1,4 +1,18 @@
-const teendokLista = [];
+//A regiszrálásnál a jelszó megadós field "jelszo_regisztracio" lett    NEM tartalmazza a sima "jelszo" ID-t
+//Átmenetileg kikommentezve: 118. sor és új funcion-ök
+var teendokLista = [];      //lehet, hogy simán lehet, hogy maradhatna const, de inkább átrakom var-ra (hisz változik az értéke)
+var regiszraltFiokok = [];
+var selectedFiok;
+
+//Van jótár átmeneti in- és output megoldás (lényegében az összes alert/prompt), majd kérnék hozzá frontend-en helyet, mert nem akarok "rossz" helyre írni
+
+class fiok{
+    constructor(uName, email, pWord){
+        this.uName = uName;
+        this.email = email;
+        this.pWord = pWord;
+    }
+}
 class Teendo {
     constructor(nev, leiras, datum) {
         this.nev = nev;
@@ -102,6 +116,81 @@ function teendokFrissit() {
     }
 }
 
+function regisztracio(mitCsinaljon)
+{
+    if(mitCsinaljon === "keep")
+    {
+        const wrap = document.querySelector(".regisztracio");
+        if(wrap){
+            console.log(":(");
+        }
+        else{
+            console.log("Létezik VÉGRE!");
+        }
+        const inUName = wrap.querySelector(".felhasznalonev_regisztracio").value;
+        const inEmail = wrap.querySelector(".email").value;
+        const inPWord = wrap.querySelector(".jelszo").value;
+        if(inUName && inEmail && inPWord){
+            if(!regiszraltFiokok.find(acc => acc.email === inEmail) && !regiszraltFiokok.find(acc => acc.uName === inUName)){
+                regiszraltFiokok.push(new fiok(inUName, inEmail, inPWord));
+                alert("Regisztáció sikeres");
+            }
+            else if(regiszraltFiokok.find(acc => acc.email === inEmail)){
+                alert("A megadott email címmel már regisztráltak");
+            }
+            else{
+                alert("Az adott névvel már regisztráltak")
+            }
+        }
+    }
+    else{
+        console.log("Show:\tregisztracio");
+        document.querySelector(".bejelentkezes_regisztracio").classList.add("fordul_egesz");
+        document.querySelector(".bejelentkezes_registracio_inner").classList.add("fordul_inner");
+        //alert("Hiányzó adat");
+    }
+}
+
+function bejelentkezes(mitCsinaljon)
+{
+    if(mitCsinaljon === "keep")
+    {
+        const wrap = document.querySelector(".bejelentkezes");
+        if(wrap){
+            console.log(":( ");
+        }
+        else{
+            console.log("Létezik VÉGRE!");
+        }
+        const inUName = wrap.querySelector(".felhasznalonev").value;
+        const inPWord = wrap.querySelector(".jelszo").value;
+        if(inUName && inPWord){
+            const talaltUname = regiszraltFiokok.find(acc => acc.uName === inUName);
+            const talaltPWord = regiszraltFiokok.find(acc => acc.pWord === inPWord);
+            if(talaltPWord && talaltUname){
+                if(talaltPWord.uName === talaltUname.uName){
+                    selectedFiok = talaltUname;
+                    alert("Sikeres belépés");
+                }
+                else if(talaltUname !== null && talaltPWord){
+                    alert(`Helytelen jelszó a(z) ${talaltUname.uName} fiókhoz`);    //nagy eséllyel ki lesz véve ez az else if, vagy "progressive" lesz a log-in, de azt meg kell csinálni a regisztárlásnál is (max akkor áljunk neki, ha túlságosan ráérünk)
+                }
+                else{
+                    alert("Helytelen felhasználónév vagy jelszó")
+                }
+            }
+            else{
+                alert("Nem található az adott fiók");
+            }
+        }
+    }
+    else{
+        console.log("Show:\tbejelentkezes");
+        document.querySelector(".bejelentkezes_regisztracio").classList.remove("fordul_egesz");
+        document.querySelector(".bejelentkezes_registracio_inner").classList.remove("fordul_inner");
+        //alert("Hiányzó adat");
+    }
+}
 document.querySelector("#addEvent").addEventListener("click", () => {
     const nev = prompt("Teendő neve:");
     const leiras = prompt("Teendő leírása:");
@@ -113,47 +202,3 @@ document.querySelector("#addEvent").addEventListener("click", () => {
         teendokFrissit();
     }
 });
-
-//ez a hamburgermenu 
-function burgermenu() {
-    var element = document.querySelector(".oldalsav");
-    element.style.display = element.style.display === "block" ? "none" : "block";
-}
-
-//ez a rutintablazat 
-var table = document.querySelector(".habitus_table");
-function habitus_add() {
-    var row = table.insertRow();
-    var cell1 = row.insertCell();
-    var cell2 = row.insertCell();
-    var cell3 = row.insertCell();
-    var cell4 = row.insertCell();
-    var cell5 = row.insertCell();
-    var cell6 = row.insertCell();
-    var cell7 = row.insertCell();
-    var cell8 = row.insertCell();
-
-    var minusButton = document.createElement("div");
-    cell1.className = "eltavolit_megjelenit"
-    minusButton.className = "eltavolit_habitus";
-    minusButton.innerHTML = "<img src='images/plus.png' alt=''>";
-    minusButton.addEventListener("click", function () {
-        habitus_minus(this);
-    });
-    var inputField = document.createElement("input");
-    inputField.className = "tablazat_rutin";
-
-    cell1.appendChild(minusButton);
-    cell1.appendChild(inputField);
-    cell2.innerHTML = "";
-    cell3.innerHTML = "";
-    cell4.innerHTML = "";
-    cell5.innerHTML = "";
-    cell6.innerHTML = "";
-    cell7.innerHTML = "";
-    cell8.innerHTML = "";
-}
-function habitus_minus(element) {
-    var row = element.parentNode.parentNode;
-    table.deleteRow(row.rowIndex);
-}
