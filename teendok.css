@@ -1,6 +1,7 @@
 table{
     border: #fff;
     color: #fff;
+    height: fit-content;
 }
 
 td, th{
@@ -15,13 +16,17 @@ th{
     color: #fff;
     padding: 1.3rem;
 }
+td img{
+    height: 100%;
+    text-align: center;
+    margin: auto;
+    align-items: center;
+    transform: translateX(50%);
+}
 
 .elsoTH{
     position: relative;
     width: 10rem;
-}
-.elsoTH_szoveg{
-    transform: translateY(20%);
 }
 
 .hozzaad_habitus{
@@ -82,23 +87,24 @@ th{
     gap: 10px;
 }
 
+.eltavolit_habitus input[type=text]{
+    height: fit-content;
+}
 
 .tablazat_rutin{
     background-color: #dddddd00;
     border: none;
-    border-bottom: 1px solid #ffffff;
     color:#fff;
-    font-size: 1vw;
+    font-size: 1rem;
 }
 
 .tablazat_rutin:focus{
     border: none;
     outline: none;
-    border-bottom: 1px solid #fff;
 }
 
 .priority_feladat{
-    height: 8rem;
+    height: fit-content ;
     position: relative;
     display: grid;
     border: 1px solid yellow;

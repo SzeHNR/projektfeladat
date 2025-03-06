@@ -17,10 +17,10 @@ var selectedFiok;
 
 //Van jótár átmeneti in- és output megoldás (lényegében az összes alert/prompt), majd kérnék hozzá frontend-en helyet, mert nem akarok "rossz" helyre írni
 
-class fiok{
-    constructor(uName, email, pWord){
+class fiok {
+    constructor(uName, email, pWord) {
         this.uName = uName;
-        this.email = email; 
+        this.email = email;
         this.pWord = pWord;
     }
 }
@@ -71,15 +71,15 @@ class Teendo {
         teendoAdatok.setAttribute("class", "teendo_adatok");
         leirasElem.setAttribute("class", "teendo_leiras");
         datumElem.setAttribute("class", "teendo_");
-        
+
         //Style
         teendoAdatok.style.display = "none";
-        
+
         //Szöveg
         title.textContent = this.nev;
         leirasElem.textContent = this.leiras;
         datumElem.textContent = `Dátum: ${this.datum.toLocaleDateString()}`;            //Nem, nem jó a sima .toString(), mert akkor hozzáír olyan baromságot is, mint UTC
-        
+
         //Funcion(ök)
         lenyitoGomb.addEventListener("click", () => {
             teendoAdatok.style.display = teendoAdatok.style.display === "none" ? "block" : "none";
@@ -89,12 +89,12 @@ class Teendo {
             this.leiras = prompt("Új leírás:", this.leiras) || this.leiras;
             let ujDatum = prompt("Új dátum (ÉÉÉÉ-HH-NN vagy ÉÉÉÉHHNN):", this.datum.toISOString().split('T')[0]);
             this.datum = this.getValidDate(ujDatum);
-            
+
             title.textContent = this.nev;
             leirasElem.textContent = this.leiras;
             datumElem.textContent = `Dátum: ${this.datum.toLocaleDateString()}`;
         });
-        
+
         //Append
         checkboxWrapper.appendChild(checkbox);
         leiras.appendChild(leirasKep);
@@ -105,7 +105,7 @@ class Teendo {
         } else {
             esemenyDiv.append(checkboxWrapper, title, leiras);
         }
-        
+
         teendoAdatok.append(leirasElem, datumElem);
         eventWrap.append(esemenyDiv, teendoAdatok);
 
@@ -116,45 +116,43 @@ class Teendo {
 function teendokFrissit() {
     const container = document.querySelector(".teendok");
     container.innerHTML = ""; //Clear
-    if(teendokLista.length === 0)       //Debug szinten jó, hogy nem jelenik meg minden egyes alkalommal, máskülönben nem jó, mert nem működik
+    if (teendokLista.length === 0)       //Debug szinten jó, hogy nem jelenik meg minden egyes alkalommal, máskülönben nem jó, mert nem működik
     {
         alert("Nincsen egyetlen egy teendő sem");
     }
-    else{
+    else {
         teendokLista.forEach(teendo => {
             container.appendChild(teendo.addHMTLresz());
         });
     }
 }
 
-function regisztracio(mitCsinaljon)
-{
-    if(mitCsinaljon === "keep")
-    {
+function regisztracio(mitCsinaljon) {
+    if (mitCsinaljon === "keep") {
         const wrap = document.querySelector(".regisztracio");
-        if(wrap){
+        if (wrap) {
             console.log(":(");
         }
-        else{
+        else {
             console.log("Létezik VÉGRE!");
         }
         const inUName = wrap.querySelector(".felhasznalonev_regisztracio").value;
         const inEmail = wrap.querySelector(".email").value;
         const inPWord = wrap.querySelector(".jelszo").value;
-        if(inUName && inEmail && inPWord){
-            if(!regiszraltFiokok.find(acc => acc.email === inEmail) && !regiszraltFiokok.find(acc => acc.uName === inUName)){
+        if (inUName && inEmail && inPWord) {
+            if (!regiszraltFiokok.find(acc => acc.email === inEmail) && !regiszraltFiokok.find(acc => acc.uName === inUName)) {
                 regiszraltFiokok.push(new fiok(inUName, inEmail, inPWord));
                 alert("Regisztáció sikeres");
             }
-            else if(regiszraltFiokok.find(acc => acc.email === inEmail)){
+            else if (regiszraltFiokok.find(acc => acc.email === inEmail)) {
                 alert("A megadott email címmel már regisztráltak");
             }
-            else{
+            else {
                 alert("Az adott névvel már regisztráltak")
             }
         }
     }
-    else{
+    else {
         console.log("Show:\tregisztracio");
         document.querySelector(".bejelentkezes_regisztracio").classList.add("fordul_egesz");
         document.querySelector(".bejelentkezes_registracio_inner").classList.add("fordul_inner");
@@ -162,41 +160,39 @@ function regisztracio(mitCsinaljon)
     }
 }
 
-function bejelentkezes(mitCsinaljon)
-{
-    if(mitCsinaljon === "keep")
-    {
+function bejelentkezes(mitCsinaljon) {
+    if (mitCsinaljon === "keep") {
         const wrap = document.querySelector(".bejelentkezes");
-        if(wrap){
+        if (wrap) {
             console.log(":( ");
         }
-        else{
+        else {
             console.log("Létezik VÉGRE!");
         }
         const inUName = wrap.querySelector(".felhasznalonev").value;
         const inPWord = wrap.querySelector(".jelszo").value;
-        if(inUName && inPWord){
+        if (inUName && inPWord) {
             const talaltUname = regiszraltFiokok.find(acc => acc.uName === inUName);
             const talaltPWord = regiszraltFiokok.find(acc => acc.pWord === inPWord);
-            if(talaltPWord && talaltUname){
-                if(talaltPWord.uName === talaltUname.uName){
+            if (talaltPWord && talaltUname) {
+                if (talaltPWord.uName === talaltUname.uName) {
                     selectedFiok = talaltUname;
                     alert("Sikeres belépés");
-                    document.querySelector(".bejelentkezes_regisztracio").style.display="none";
+                    document.querySelector(".bejelentkezes_regisztracio").style.display = "none";
                 }
-                else if(talaltUname !== null && talaltPWord){
+                else if (talaltUname !== null && talaltPWord) {
                     alert(`Helytelen jelszó a(z) ${talaltUname.uName} fiókhoz`);    //nagy eséllyel ki lesz véve ez az else if, vagy "progressive" lesz a log-in, de azt meg kell csinálni a regisztárlásnál is (max akkor áljunk neki, ha túlságosan ráérünk)
                 }
-                else{
+                else {
                     alert("Helytelen felhasználónév vagy jelszó")
                 }
             }
-            else{
+            else {
                 alert("Nem található az adott fiók");
             }
         }
     }
-    else{
+    else {
         console.log("Show:\tbejelentkezes");
         document.querySelector(".bejelentkezes_regisztracio").classList.remove("fordul_egesz");
         document.querySelector(".bejelentkezes_registracio_inner").classList.remove("fordul_inner");
@@ -206,7 +202,7 @@ function bejelentkezes(mitCsinaljon)
 document.querySelector("#addEvent").addEventListener("click", () => {
     const nev = prompt("Teendő neve:");
     const leiras = prompt("Teendő leírása:");
-    let datum = prompt("Esemény dátuma (ÉÉÉÉ-HH-NN vagy ÉÉÉÉHHNN):");        
+    let datum = prompt("Esemény dátuma (ÉÉÉÉ-HH-NN vagy ÉÉÉÉHHNN):");
     if (nev) {
         const teendo = new Teendo(nev, leiras || "", datum);    //Igen, kell a || "" rész mert a JS különbséget tesz a string.Empty és null közt (senki sem kérte)
         teendokLista.push(teendo);
@@ -225,15 +221,15 @@ function burgermenu() {
 //ez a rutintablazat 
 var table = document.querySelector(".habitus_table");
 function habitus_add() {
-    var row = table.insertRow();
-    var cell1 = row.insertCell();
-    var cell2 = row.insertCell();
-    var cell3 = row.insertCell();
-    var cell4 = row.insertCell();
-    var cell5 = row.insertCell();
-    var cell6 = row.insertCell();
-    var cell7 = row.insertCell();
-    var cell8 = row.insertCell();
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+    var cell7 = row.insertCell(6);
+    var cell8 = row.insertCell(7);
 
     var minusButton = document.createElement("div");
     cell1.className = "eltavolit_megjelenit"
@@ -247,15 +243,71 @@ function habitus_add() {
 
     cell1.appendChild(minusButton);
     cell1.appendChild(inputField);
-    cell2.innerHTML = "";
-    cell3.innerHTML = "";
-    cell4.innerHTML = "";
-    cell5.innerHTML = "";
-    cell6.innerHTML = "";
-    cell7.innerHTML = "";
-    cell8.innerHTML = "";
+    cell2.addEventListener("click", function() {
+        check(this);
+    });
+    cell3.addEventListener("click", function() {
+        check(this);
+    });
+    cell4.addEventListener("click", function() {
+        check(this);
+    });
+    cell5.addEventListener("click", function() {
+        check(this);
+    });
+    cell6.addEventListener("click", function() {
+        check(this);
+    });
+    cell7.addEventListener("click", function() {
+        check(this);
+    });
+    cell8.addEventListener("click", function() {
+        check(this);
+    });
 }
+
 function habitus_minus(element) {
     var row = element.parentNode.parentNode;
     table.deleteRow(row.rowIndex);
+}
+
+
+//ez a tablazat checkrendszere
+function check(td) {
+    const icons = {
+        check: '<img src="images/check_feher.png" alt="">',
+        close: '<img src="images/close.png" alt="">',
+        empty: ""
+    };
+
+    const currentState = td.getAttribute("data-state");
+    let nextState;
+
+    switch (currentState) {
+        case "check":
+            nextState = "close";
+            break;
+        case "close":
+            nextState = "empty";
+            break;
+        default:
+            nextState = "check";
+    }
+
+    td.innerHTML = icons[nextState];
+    td.setAttribute("data-state", nextState);
+}
+
+//fiok block ki es be
+function fiokadatok_KiBe() {
+    var adatok_alaphelyzet = document.querySelector(".fiok_beallitasok");
+    var adatok_minden = document.querySelector(".fiok_adatok");
+    if (adatok_minden.style.display == "none") {
+        adatok_minden.style.display = "grid";
+        adatok_alaphelyzet.style.display = "none";
+    }
+    else {
+        adatok_minden.style.display = "none";
+        adatok_alaphelyzet.style.display = "grid";
+    }
 }

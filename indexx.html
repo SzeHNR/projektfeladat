@@ -15,7 +15,7 @@
 
 <body>
     <div class="container">
-        <div class="bejelentkezes_regisztracio" style="display: none;"> <!--flip card   style="display: none;" -->
+        <div class="bejelentkezes_regisztracio"> <!--flip card   style="display: none;" -->
             <div class="bejelentkezes_registracio_inner "> <!--flip card inner-->
                 <div class="bejelentkezes"><!--flip card front-->
                     <div class="bejelentkezes_header">Bejelentkezes</div>
@@ -106,13 +106,25 @@
                                         <td class="eltavolit_megjelenit">
                                             <input type="text" name="" class="tablazat_rutin">
                                         </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="eltavolit_megjelenit">
+                                            <input type="text" name="" class="tablazat_rutin">
+                                        </td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
+                                        <td onclick="check(this)"></td>
                                     </tr>
                                 </table>
                                 <div class="priority_feladat">
@@ -235,21 +247,6 @@
                     </div>
                 </div>
             </div>
-            <script>
-                function fiokadatok_KiBe() {
-                    var adatok_alaphelyzet = document.querySelector(".fiok_beallitasok");
-                    var adatok_minden =  document.querySelector(".fiok_adatok");
-                    if (adatok_minden.style.display == "none"){
-                        adatok_minden.style.display = "grid";
-                        adatok_alaphelyzet.style.display = "none";
-                    }
-                    else{
-                        adatok_minden.style.display = "none";
-                        adatok_alaphelyzet.style.display = "grid";
-                    }
-                }
-            </script>
-
             <div class="minigane">
             </div>
         </div>
