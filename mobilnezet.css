@@ -48,11 +48,4 @@
     .rutinok{
         grid-template-columns: 1fr;
     }
-
-
-
-
-    .fiok_nev{
-        display: none;
-    }
 }

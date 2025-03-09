@@ -311,3 +311,20 @@ function fiokadatok_KiBe() {
         adatok_alaphelyzet.style.display = "grid";
     }
 }
+
+//uj prioritas add
+function prioritas_add() {
+    let priorityList = document.querySelector('.prioritas_elemek');
+    let newTask = document.createElement('li');
+    priorityList.appendChild(newTask);
+    newTask.innerHTML = '<input type="text">';
+}
+
+//prioritas minusz
+function prioritas_minus() {
+    let priorityList = document.querySelector('.prioritas_elemek');
+    let tasks = priorityList.children;
+    if (tasks.length > 0) {
+        priorityList.removeChild(tasks[tasks.length - 1]);
+    }
+}

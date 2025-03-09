@@ -3,7 +3,36 @@ body {
     background-color: #222f36;
 }
 
-.main{
+input[type="checkbox"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border: none;
+    background: #fff;
+    border-radius: 0.25em;
+    transform: translateY(-0.075em);
+    place-content: center;
+    display: grid;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 10em 10em greenyellow;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1.4);
+}
+
+.main {
     position: relative;
     padding: 0;
 }
@@ -13,7 +42,7 @@ body {
 }
 
 .main_felulet {
-    position:relative;
+    position: relative;
     margin: 0;
     display: grid;
     grid-template-columns: 1fr 5fr;
@@ -72,7 +101,8 @@ hr {
     font-size: larger;
 
 }
-.rememberMe > input[type="checkbox"] {
+
+.rememberMe>input[type="checkbox"] {
     width: 20px;
     height: 20px;
 }
@@ -154,5 +184,3 @@ main {
 ::-webkit-scrollbar-thumb:hover {
     background: #888;
 }
-
-

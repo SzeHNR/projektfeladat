@@ -5,13 +5,13 @@
 .fiok_beallitasok {
     padding: 0;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr;
     position: absolute;
     right: 0;
-    top: 2rem;
+    top: 1rem;
     cursor: pointer;
     height: fit-content;
-    width: 18vw;
+    width: 7rem;
     background-color: #f9b17a;
     color: #2d3250;
     border-radius: 50px 0 0 50px;
@@ -27,21 +27,7 @@
     border: 2px solid #2d3250;
 }
 
-.fiok_nev {
-    border: none;
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-    text-align: center;
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-    color: #2d3250;
-    font-family: cursive;
-}
-
 .fiok_adatok {
-    
     border: 2px solid white;
     position: absolute;
     right: 10px;
@@ -87,7 +73,8 @@
 
 .adatok .adatok_email,
 .adatok .adatok_jelszo_valtoztatas,
-.adatok .adatok_kijelentkzes {
+.adatok .adatok_kijelentkzes,
+.elrendezes {
     border: none;
     height: 2.5rem;
     color: white;
@@ -96,6 +83,7 @@
 }
 
 .adatok .adatok_jelszo_valtoztatas,
-.adatok .adatok_kijelentkzes {
+.adatok .adatok_kijelentkzes,
+.elrendezes {
     cursor: pointer;
 }

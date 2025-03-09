@@ -65,8 +65,6 @@
                     </div>
                     <div class="hamburgermenu" style="border: none;">
                         <div href="#" class="nav-item home">home</div>
-                        <div href="#" class="nav-item napi_feladatok">napi feladatok</div>
-                        <div href="#" class="nav-item heti_feladatok">heti feladatok</div>
                         <div href="#" class="nav-item rutin_feladatok">rutin</div>
                         <div href="#" class="nav-item jegyzetek">jegyzetek</div>
                         <div href="#" class="nav-item kert">kert</div>
@@ -87,59 +85,67 @@
                         <div class="teendok">
 
                             <div class="rutinok">
-                                <table class="habitus_table">
-                                    <tr>
-                                        <th class="elsoTH">
-                                            <div onclick="habitus_add()" class="hozzaad_habitus"><img
-                                                    src="images/plus.png" alt=""></div>
-                                            <span class="elsoTH_szoveg">Habitusok</span>
-                                        </th>
-                                        <th>H</th>
-                                        <th>K</th>
-                                        <th>Sz</th>
-                                        <th>Cs</th>
-                                        <th>P</th>
-                                        <th>Sz</th>
-                                        <th>V</th>
-                                    </tr>
-                                    <tr>
-                                        <td class="eltavolit_megjelenit">
-                                            <input type="text" name="" class="tablazat_rutin">
-                                        </td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="eltavolit_megjelenit">
-                                            <input type="text" name="" class="tablazat_rutin">
-                                        </td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                        <td onclick="check(this)"></td>
-                                    </tr>
-                                </table>
+                                <div style="border: none;">
+                                    <table class="habitus_table">
+                                        <tr>
+                                            <th class="elsoTH">
+                                                <span class="elsoTH_szoveg">Habitusok</span>
+                                            </th>
+                                            <th>H</th>
+                                            <th>K</th>
+                                            <th>Sz</th>
+                                            <th>Cs</th>
+                                            <th>P</th>
+                                            <th>Sz</th>
+                                            <th>V</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="eltavolit_megjelenit">
+                                                <input type="text" name="" class="tablazat_rutin">
+                                            </td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="eltavolit_megjelenit">
+                                                <input type="text" name="" class="tablazat_rutin">
+                                            </td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                            <td onclick="check(this)"></td>
+                                        </tr>
+                                    </table>
+                                    <div onclick="habitus_add()" class="hozzaad_habitus">+</div>
+                                </div>
                                 <div class="priority_feladat">
                                     <div class="elsodleges_feladatok">
-                                        <h3>prioritas</h3>
-                                        <input type="checkbox" name="" id=""><input type="text">
-                                        <input type="checkbox" name="" id=""><input type="text">
-                                        <input type="checkbox" name="" id=""><input type="text">
+                                        <h3>prioritas a hetre</h3>
+                                        <ul class="prioritas_elemek">
+                                            <li><input type="text"></li>
+                                            <li><input type="text"></li>
+                                            <li><input type="text"></li>
+                                        </ul>
                                     </div>
-                                    <div class="jegyzetek">
-                                        JEGYZETEK
+                                    <div class="plusz_minusz">
+                                        <div class="plusz" onclick="prioritas_add()">+</div>
+                                        <div class="minusz" onclick="prioritas_minus()">-</div>
                                     </div>
                                 </div>
-                                <div class="naptar"> <!--ITT A NAPTAR RESZ HA BARMI OTLET VAN-->
-                                    NAPTAR
+                                <script>
+                                    
+                                </script>
+                                <div class="jegyzetek">
+                                    <h3>jegyzetek</h3>
+                                    <input type="text">
                                 </div>
                             </div>
                             <div class="het">
@@ -234,16 +240,16 @@
 
                 <div class="fiok_beallitasok" onclick="fiokadatok_KiBe()">
                     <div class="fiok_kep"></div>
-                    <div class="fiok_nev">Fiok Nev</div>
                 </div>
                 <div class="fiok_adatok" style="display: none;">
                     <div class="vissza" onclick="fiokadatok_KiBe()">>>></div>
                     <div class="fiok_kep_nagy"></div>
                     <div class="fiok_nev_nagy">Fiok Nev</div>
                     <div class="adatok">
-                        <div class="adatok_email">EMAILCIM</div>
+                        <div class="adatok_email">EMAIL-CIM</div>
                         <div class="adatok_jelszo_valtoztatas">JELSZO VALTOZTATAS</div>
                         <div class="adatok_kijelentkzes">KIJELENTKEZES</div>
+                        <div class="elrendezes">ELRENDEZES</div>
                     </div>
                 </div>
             </div>
