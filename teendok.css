@@ -1,24 +1,24 @@
-table {
+.main-table table {
     border: #fff;
     color: #fff;
     height: fit-content;
 }
 
-td,
-th {
+.main-table td,
+.main-table th {
     border: 1px solid #ddd;
     width: 2rem;
     height: 2rem;
     position: relative;
 }
 
-th {
+.main-table th {
     background-color: #424769;
     color: #fff;
     padding: 1.3rem;
 }
 
-td img {
+.main-table td img {
     height: 100%;
     text-align: center;
     margin: auto;
@@ -243,6 +243,7 @@ ul input[type=text]::placeholder {
     border: none;
     height: 1px;
     font-size: 0.8vw;
+    border-bottom: 1px solid #74747479;
 }
 
 .napi_feladatok>input[type=text]:focus {
@@ -342,7 +343,7 @@ ul input[type=text]::placeholder {
 
 
 .teendok {
-    width: 100%;
+    width: 99%;
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
