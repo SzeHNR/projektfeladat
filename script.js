@@ -219,58 +219,28 @@ function burgermenu() {
 }
 
 //ez a rutintablazat 
-var table = document.querySelector(".habitus_table");
-function habitus_add() {
-    var row = table.insertRow(-1);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
-    var cell7 = row.insertCell(6);
-    var cell8 = row.insertCell(7);
-
-    var minusButton = document.createElement("div");
-    cell1.className = "eltavolit_megjelenit"
-    minusButton.className = "eltavolit_habitus";
-    minusButton.innerHTML = "<img src='images/plus.png' alt=''>";
-    minusButton.addEventListener("click", function () {
-        habitus_minus(this);
-    });
-    var inputField = document.createElement("input");
-    inputField.className = "tablazat_rutin";
-
-    cell1.appendChild(minusButton);
-    cell1.appendChild(inputField);
-    cell2.addEventListener("click", function() {
-        check(this);
-    });
-    cell3.addEventListener("click", function() {
-        check(this);
-    });
-    cell4.addEventListener("click", function() {
-        check(this);
-    });
-    cell5.addEventListener("click", function() {
-        check(this);
-    });
-    cell6.addEventListener("click", function() {
-        check(this);
-    });
-    cell7.addEventListener("click", function() {
-        check(this);
-    });
-    cell8.addEventListener("click", function() {
-        check(this);
-    });
+function mainHabitusAdd() {
+    const tableBody = document.querySelector('.main-habitus-body');
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td><input type="text"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        `;
+    tableBody.appendChild(newRow);
 }
-
-function habitus_minus(element) {
-    var row = element.parentNode.parentNode;
-    table.deleteRow(row.rowIndex);
+function mainHabitusRemove() {
+    const tableBody = document.querySelector('.main-habitus-body');
+    const rows = tableBody.children;
+    if (rows.length > 1) {
+        tableBody.removeChild(rows[rows.length - 1]);
+    }
 }
-
 
 //ez a tablazat checkrendszere
 function check(td) {
@@ -326,5 +296,31 @@ function prioritas_minus() {
     let tasks = priorityList.children;
     if (tasks.length > 0) {
         priorityList.removeChild(tasks[tasks.length - 1]);
+    }
+}
+
+//teendok ki és be
+function habitusAdd() {
+    const tableBody = document.getElementById('habits-table-body');
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td><input type="text"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td></td>
+        `;
+    tableBody.appendChild(newRow);
+}
+function habitusRemove() {
+    const tableBody = document.getElementById('habits-table-body');
+    const rows = tableBody.children;
+    if (rows.length > 1) {
+        tableBody.removeChild(rows[rows.length - 1]);
     }
 }

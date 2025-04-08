@@ -48,4 +48,8 @@
     .rutinok{
         grid-template-columns: 1fr;
     }
+
+    .jegyzetek-card-main{
+        grid-template-columns: 1fr;
+    }
 }

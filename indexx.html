@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="fiokadatok.css">
     <link rel="stylesheet" href="mobilnezet.css">
     <link rel="stylesheet" href="habits.css">
+    <link rel="stylesheet" href="jegyzetek.css">
 </head>
 
 <body>
@@ -60,22 +61,19 @@
         </div>
         <!--csak azert hogy a belallitasokat folyamatosan oda lehessen rakni-->
         <div class="main_ES_minigame">
-            <div class="main_felulet"> <!--HOME-->
+            <div class="main_felulet">
                 <div class="oldalsav">
                     <div href="#" class="fejlec_kerekites "><span style="display: block;" class="menuszoveg">menu</span>
                     </div>
                     <div class="hamburgermenu" style="border: none;">
                         <div onclick="Home()" href="#" class="nav-item home">home</div>
                         <div onclick="Rutin()" href="#" class="nav-item rutin_feladatok">rutin</div>
-                        <div onclick="Jegyzetek()" href="#" class="nav-item jegyzetek">jegyzetek</div>
+                        <div onclick="Notes()" href="#" class="nav-item jegyzetek">jegyzetek</div>
                         <div onclick="Kert()" href="#" class="nav-item kert">kert</div>
                     </div>
                 </div>
-
-                
-
-                <div class="main HOME">     <!--HOME-->
-                   <div class="fejlec_feladatok">
+                <div class="main HOME"> <!--HOME-->
+                    <div class="fejlec_feladatok">
                         <div class="teendok_fejlec">
                             <div style="border: none; " class="menuicon_div">
                                 <img src="images/menuIcon_fekete.png" alt="" class="menuicon" onclick="burgermenu()">
@@ -87,44 +85,47 @@
                             <div class="rutinok">
                                 <div style="border: none;" class="main-table">
                                     <table class="habitus_table">
-                                        <tr>
-                                            <th class="elsoTH">
-                                                <span class="elsoTH_szoveg">Habitusok</span>
-                                            </th>
-                                            <th>H</th>
-                                            <th>K</th>
-                                            <th>Sz</th>
-                                            <th>Cs</th>
-                                            <th>P</th>
-                                            <th>Sz</th>
-                                            <th>V</th>
-                                        </tr>
-                                        <tr>
-                                            <td class="eltavolit_megjelenit">
-                                                <input type="text" name="" class="tablazat_rutin">
-                                            </td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="eltavolit_megjelenit">
-                                                <input type="text" name="" class="tablazat_rutin">
-                                            </td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                            <td onclick="check(this)"></td>
-                                        </tr>
+                                        <thead>
+                                            <tr>
+                                                <th class="elsoTH">
+                                                    <span class="elsoTH_szoveg">Habitusok</span>
+                                                </th>
+                                                <th>H</th>
+                                                <th>K</th>
+                                                <th>Sz</th>
+                                                <th>Cs</th>
+                                                <th>P</th>
+                                                <th>Sz</th>
+                                                <th>V</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="main-habitus-body">
+                                            <tr>
+                                                <td><input type="text"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                                <td><input type="checkbox"></td>
+                                            </tr>
+                                        </tbody>
                                     </table>
-                                    <div onclick="habitus_add()" class="hozzaad_habitus">+</div>
+                                    <div class="habitus-controls ">
+                                        <div class="habitus-add style_habitus" onclick="mainHabitusAdd()">+</div>
+                                        <div class="habitus-remove style_habitus" onclick="mainHabitusRemove()">-</div>
+                                    </div>
                                 </div>
                                 <div class="priority_feladat">
                                     <div class="elsodleges_feladatok">
@@ -140,11 +141,15 @@
                                         <div class="minusz" onclick="prioritas_minus()">-</div>
                                     </div>
                                 </div>
+                                <hr class="main-hr">
                                 <div class="jegyzetek">
                                     <h3>jegyzetek</h3>
-                                    <input type="text">
+                                    <textarea id="fixed-textarea"></textarea>
                                 </div>
                             </div>
+                            <script>
+
+                            </script>
                             <div class="het">
                                 <div class="hozzaad" id="addEvent">+</div>
                                 <div class="napok hetfo">
@@ -235,9 +240,9 @@
                     </div>
                 </div>
 
-                <div class="HABITS" style="display: none;">     <!--HABITS-->
+                <div class="HABITS" style="display: none;"> <!--HABITS-->
                     <div class="habits-main" style="border: 2px solid white;">
-                        <div class="teendok_fejlec" >
+                        <div class="teendok_fejlec">
                             <div style="border: none; " class="menuicon_div">
                                 <img src="images/menuIcon_fekete.png" alt="" class="menuicon" onclick="burgermenu()">
                             </div>
@@ -247,46 +252,158 @@
                         <div class="habits-div">
                             <div class="habits-table">
                                 <table>
-                                    <tr>
-                                        <th>nap</th>
-                                        <th><img src="images/drop.png" alt=""></th>
-                                        <th><img src="images/fitness.png" alt=""></th>
-                                        <th><img src="images/open-book.png" alt=""></th>
-                                        <th><img src="images/pen.png" alt=""></th>
-                                        <th><img src="images/graduate.png" alt=""></th>
-                                        <th><img src="images/drugs.png" alt=""></th>
-                                        <th><img src="images/night.png" alt=""></th>
-                                        <th><img src="images/tree-silhouette.png" alt=""></th>
-                                        <th>progress %</th>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="text"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th>nap</th>
+                                            <th><img src="images/drop.png" alt="napi vizmennyiseg"
+                                                    title="napi vizmennyiseg"></th>
+                                            <th><img src="images/fitness.png" alt="edzes" title="edzes"></th>
+                                            <th><img src="images/open-book.png" alt="olvasas" title="olvasas"></th>
+                                            <th><img src="images/pen.png" alt="naplo" title="naplo"></th>
+                                            <th><img src="images/graduate.png" alt="tanulas" title="tanulas/munka"></th>
+                                            <th><img src="images/drugs.png" alt="gyogyszerek" title="gyogyszerek"></th>
+                                            <th><img src="images/night.png" alt="8 ora alvas" title="8 ora alvas"></th>
+                                            <th><img src="images/tree-silhouette.png" alt="teremszet" title="teremszet">
+                                            </th>
+                                            <th>progress %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="habits-table-body">
+                                        <tr>
+                                            <td><input type="text"></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox"></td>
+                                            <td>%</td>
+                                        </tr>
+                                    </tbody>
                                 </table>
+                                <div class="habitus-controls">
+                                    <div onclick="habitusAdd()" class="style_habitus">+</div>
+                                    <div onclick="habitusRemove()" class="style_habitus">-</div>
+                                </div>
                             </div>
                             <div class="habits-goal-elso">
-    
+                                <div class="fitness-goal-fejlec">Fitness célok</div>
+                                <div class="fitness-goals">
+                                    <ul>
+                                        <li><input type="text"></li>
+                                        <li><input type="text"></li>
+                                        <li><input type="text"></li>
+                                    </ul>
+                                    <div class="habitus-controls">
+                                        <div onclick="GoalAdd()" class="style_habitus">+</div>
+                                        <div onclick="GoalRemove()" class="style_habitus">-</div>
+                                    </div>
+                                </div>
+                                <script>
+                                    function GoalAdd() {
+                                        var ul = document.querySelector(".fitness-goals ul");
+                                        var li = document.createElement("li");
+                                        li.innerHTML = "<input type='text'>";
+                                        ul.appendChild(li);
+
+                                    }
+                                    function GoalRemove() {
+                                        var ul = document.querySelector(".fitness-goals ul");
+                                        ul.removeChild(ul.lastChild);
+                                    }
+                                </script>
                             </div>
                             <div class="habits-goal-masodik">
-    
+                                <div class="fitness-goal-fejlec">egyeb célok</div>
+                                <div class="fitness-goals">
+                                    <ul>
+                                        <li><input type="text"></li>
+                                        <li><input type="text"></li>
+                                        <li><input type="text"></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="GARDEN" style="display: none;" >     <!--GARDEN-->
+
+
+                <div class="NOTES" style="display: none; padding: 0;"> <!--jegyzetek-->
+                    <div class="habits-main" style="border: 2px solid white;">
+
+                        <div class="teendok_fejlec">
+                            <div style="border: none; " class="menuicon_div">
+                                <img src="images/menuIcon_fekete.png" alt="" class="menuicon" onclick="burgermenu()">
+                            </div>
+                            <div class="fejlec_kerekites">Jegyzetek</div>
+                        </div>
+
+                        <div class="jegyzetek-container">
+                            <div class="jegyzetek-card-main">
+                                <div class="jegyzetek-card jegyzetekek-card-Add" onclick="addNote()">
+                                    <p>+</p>
+                                </div>
+                                <div class="jegyzetek-card">
+                                    <input type="text" placeholder="CIM">
+                                    <hr>
+                                    <textarea id="" placeholder="szoveg"></textarea>
+                                    <div class="jegyzetek-card-Remove" onclick="removeNote()">-</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    // Function to add a new note
+                    function addNote() {
+                        const noteContainer = document.querySelector(".jegyzetek-card-main");
+                        const noteCard = createNoteCard();
+
+                        noteContainer.appendChild(noteCard);
+                    }
+
+                    // Function to create a new note card
+                    function createNoteCard() {
+                        const noteCard = document.createElement("div");
+                        noteCard.className = "jegyzetek-card";
+
+                        const titleInput = document.createElement("input");
+                        titleInput.type = "text";
+                        titleInput.placeholder = "CIM";
+
+                        const hr = document.createElement("hr");
+
+                        const textArea = document.createElement("textarea");
+                        textArea.placeholder = "szoveg";
+
+                        const removeButton = document.createElement("div");
+                        removeButton.className = "jegyzetek-card-Remove";
+                        removeButton.innerHTML = "-";
+                        removeButton.onclick = removeNote;
+
+                        noteCard.appendChild(titleInput);
+                        noteCard.appendChild(hr);
+                        noteCard.appendChild(textArea);
+                        noteCard.appendChild(removeButton);
+
+                        return noteCard;
+                    }
+
+                    // Function to remove a note
+                    function removeNote(event) {
+                        const noteCard = event.target.parentNode;
+                        noteCard.parentNode.removeChild(noteCard);
+                    }
+
+                </script>
+
+
+                <div class="GARDEN" style="display: none;"> <!--GARDEN-->
 
                 </div>
-
                 <div class="fiok_beallitasok" onclick="fiokadatok_KiBe()">
                     <div class="fiok_kep"></div>
                 </div>
@@ -302,8 +419,8 @@
                     </div>
                 </div>
             </div>
-            
-            
+
+
         </div>
     </div>
     <script>
@@ -311,20 +428,27 @@
         let habits = document.querySelector(".HABITS");
         let notes = document.querySelector(".NOTES");
         let garden = document.querySelector(".GARDEN");
-        function Home(){
+        function Home() {
             home.style.display = "grid";
             habits.style.display = "none";
             notes.style.display = "none";
             garden.style.display = "none";
         }
-        function Rutin(){
+        function Rutin() {
             home.style.display = "none";
             habits.style.display = "grid";
             notes.style.display = "none";
             garden.style.display = "none";
         }
 
-        function Kert(){
+        function Notes() {
+            home.style.display = "none";
+            habits.style.display = "none";
+            notes.style.display = "grid";
+            garden.style.display = "none";
+        }
+
+        function Kert() {
             home.style.display = "none";
             habits.style.display = "none";
             notes.style.display = "grid";
@@ -337,41 +461,3 @@
 </body>
 
 </html>
-
-<!--
-ez az elso terv volt de ujragondolom hogyan legyen 
-<div class="teendo" >
-                            <div class="teendo_nev" style="border: none;">
-                                <h6><input type="checkbox" name="" id=""></h6>
-                                <h4>teendo neve</h4>
-                                <div class="edit_mode">
-                                    <img src="images/pencil.png" alt="">
-                                </div>
-                                <div class="lenyito_gomb">
-                                    <img src="images/right-arrow.png" alt="">
-                                </div>
-                            </div>
-                            <div class="teendo_adatok" style="display: none;">
-                                <div class="teendo_leiras">teendo leirasa</div>
-                                <div class="teendo_">teendo kategoriaja</div>
-                                <div class="teendo_">teendo hatarideje</div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="teendo">
-                            <div class="teendo_nev">
-                                <h6><input type="checkbox" name="" id=""></h6>
-                                <h4>teendo neve</h4>
-                                <div class="edit_mode">
-                                    <img src="images/pencil.png" alt="">
-                                </div>
-                                <div class="lenyito_gomb">
-                                    <img src="images/right-arrow.png" alt="">
-                                </div>
-                            </div>
-                            <div class="teendo_adatok" style="display: none;">
-                                <div class="teendo_leiras">teendo leirasa</div>
-                                <div class="teendo_">teendo kategoriaja</div>
-                                <div class="teendo_">teendo hatarideje</div>
-                            </div>
-                        </div>-->

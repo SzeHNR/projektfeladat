@@ -7,8 +7,8 @@
 .main-table td,
 .main-table th {
     border: 1px solid #ddd;
-    width: 2rem;
-    height: 2rem;
+    width: 1rem;
+    height: 1rem;
     position: relative;
 }
 
@@ -31,7 +31,28 @@
     width: 10rem;
 }
 
-.hozzaad_habitus:hover {
+.habitus-controls{
+    border: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 70%;
+    margin: auto;
+    
+}
+
+.habitus-controls:hover {
+    .style_habitus{
+        color: #fff;
+        text-align: center;
+        background-color: #42424272;
+        border-radius: 1em;
+        margin-top: 0.5em;
+        border: none;
+    }
+}
+
+.style_habitus:hover{
     color: #fff;
     text-align: center;
     background-color: #42424272;
@@ -40,7 +61,7 @@
     border: none;
 }
 
-.hozzaad_habitus {
+.style_habitus {
     color: #ffffff00;
     text-align: center;
     background-color: #42424200;
@@ -50,46 +71,30 @@
     cursor: pointer;
 }
 
-.eltavolit_megjelenit input {
-    width: 70%;
-}
-
-.eltavolit_megjelenit:hover {
-    .eltavolit_habitus {
-        display: block;
-    }
-}
-
-.eltavolit_habitus {
-    display: none;
-    z-index: 1;
-    position: absolute;
-    width: 1rem;
-    height: 1rem;
-    top: 50%;
-    right: 3px;
-    background-color: #f9897a;
+.main-habitus-body>tr>td input[type="text"] {
+    height: 10%;
+    width: auto;
+    background-color: #00000000;
+    color: white;
     border: none;
-    color: black;
-    border-radius: 1rem;
-    cursor: pointer;
-    transform: translateY(-50%);
 }
 
-.eltavolit_habitus img {
-    height: 20px;
-    transform: translate(-17%, 0%);
-    rotate: 45deg;
+.main-habitus-body>tr>td input[type="text"]:focus {
+    border: none;
+    outline: none;
+    height: auto;
+    width: auto;
+}
+
+.main-habitus-body>tr>td input[type="checkbox"] {
+    margin: auto;
+    background-color: #00000000;
 }
 
 .rutinok {
     display: grid;
-    grid-template-columns: 3fr 2fr 2fr;
+    grid-template-columns: 3fr 2fr 0.01fr 2fr;
     gap: 10px;
-}
-
-.eltavolit_habitus input[type=text] {
-    height: fit-content;
 }
 
 .tablazat_rutin {
@@ -179,9 +184,13 @@ ul input[type=text]::placeholder {
     }
 }
 
+.main-hr{
+    background-color: #7e7e7e;
+    border: none;
+}
 
 .jegyzetek {
-    border: 1px solid blue;
+    border: none;
     color: white;
 }
 
@@ -191,19 +200,22 @@ ul input[type=text]::placeholder {
     text-align: center;
 }
 
-.jegyzetek>input[type=text] {
+.jegyzetek>textarea {
+    margin-top: 1rem;
+    white-space: normal;
+    word-wrap: break-all;
     color: #fff;
     background-color: #ffffff00;
     border: none;
-    height: 1px;
-    font-size: 1vw;
-    border-bottom: 1px solid #74747479;
+    resize: none;
+    width: 100%;
+    height: 90%;
+    font-size: 12px;
 }
 
-.jegyzetek>input[type=text]:focus {
+.jegyzetek>textarea:focus {
     border: none;
     outline: none;
-    border-bottom: 1px solid #74747479;
 }
 
 .napok {

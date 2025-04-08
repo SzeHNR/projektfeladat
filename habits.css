@@ -49,7 +49,7 @@
 .habits-table input[type=text]{
     height: 1px;
     background-color: #00000000;
-    border: 1px solid black;
+    border: none;
     color: white;
     float: left;
     margin-left: 0;
@@ -63,22 +63,51 @@
 
 .habits-table th:first-child, .habits-table th:last-child {
     width: 6rem;
+    text-align: center;
+}
+
+.habits-table td:last-child{
+    text-align: center;
 }
 
 .habits-goal-elso{
     border: 1px solid blueviolet;
+    position: relative;
 }
 
 .habits-goal-masodik{
     border: 1px solid yellow;
 }
 
+.fitness-goal-fejlec{
+    color: white;
+    background-color: #424769;
+    margin: auto;
+    text-align: center;
+    font-size: 1.5rem;
+}
 
+.fitness-goals{
+    color: white;
+    margin: auto;
+    text-align: center;
+    font-size: 1rem;
+    height: 320px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.habits-table > table  tr > td > input[type="checkbox"] {
+    width: max-content;
+    border-radius: 0;
+    border: none;
+    margin: auto;
+    height: 20px;
+    background-color: #00000000;
+}
 
 
 /*
-
-
 .main-table td img {
     height: 100%;
     text-align: center;
