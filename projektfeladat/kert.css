@@ -1,0 +1,35 @@
+.kert_teljes{
+    width: 99%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    color: white;
+}
+
+.kert_viragallapot{
+    grid-row: 1 / 3;
+}
+
+.kert_virag_hely img{
+    max-height: 30rem;
+    max-width: 30rem;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    vertical-align: center;
+    translate: 15%;
+}
+
+.kert_novenyfajtak{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.kert_novenyfajtak div{
+    height: 10rem;
+    width: 10rem;
+
+}
+

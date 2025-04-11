@@ -1,0 +1,249 @@
+body {
+    padding: 10px;
+}
+
+div {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+
+
+input {
+    width: 80%;
+    height: 80%;
+    margin: 5px;
+    padding: 1rem;
+}
+
+p {
+    text-align: left;
+    text-indent: 1rem;
+    margin-bottom: 2px;
+    position: relative;
+}
+
+.bejelentkezes_regisztracio {
+    padding: 0;
+    border: none;
+    text-align: center;
+    margin: 10rem auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50.5rem;
+    width: 29rem;
+    perspective: 900px;
+}
+
+.bejelentkezes_registracio_inner{ /* ez a kartya forgopontja*/
+    border: none;
+    position: relative;
+    padding: 0;
+    width: 100%;
+    height: 60%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.fordul_egesz .fordul_inner{
+    transform: rotateY(180deg);
+}
+
+.bejelentkezes, .regisztracio{ /*ez a kartya eleje*/
+    border: 2px solid white;
+    position: absolute;
+    padding: 4rem 1.5rem 1rem 1.5rem;
+    height: 25rem;
+    background-color: #434769;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px -1px rgba(0, 0, 0, 0.2);
+    color: #2d3250;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.bejelentkezes, .regisztracio{
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+.regisztracio{
+    transform: rotateY(180deg);
+}
+
+.bejelentkezes_header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.5rem;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #434769;
+    font-size: clamp(1rem, 4vw, 2rem);
+    border-radius: 0 0 15px 15px;
+    border: none;
+}
+
+.bejelentkezes_header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 50%;
+    background-color: transparent;
+    box-shadow: 15px 0 0 0 #fff;
+}
+
+.bejelentkezes_header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 50%; 
+    background-color: transparent;
+    box-shadow: -15px 0 0 0 #fff;
+}
+
+.regisztral_bejelentkezik_bejelentkezesnel {
+    position: absolute;
+    width: 85%;
+    align-items: center;
+    bottom: 5px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    gap: 20px;
+    border: none;
+}
+
+.regisztral_bejelentkezik_regisztracional {
+    position: absolute;
+    width: 85%;
+    align-items: center;
+    bottom: 5px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    gap: 20px;
+    border: none;
+}
+
+.felhasznalonev {
+    margin-top: 5rem;
+}
+
+.felhasznalonev_regisztracio{
+    margin-top: 2rem;
+}
+
+.button {
+    cursor: pointer;
+    background-color: #f9b17a;
+    color: black;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 20px #f9b17a;
+}
+
+.felhasznalonev_regisztracio,
+.felhasznalonev,
+.jelszo,
+.email {
+    height: 2rem;
+    border: none;
+    background-color: #676f9d;
+    color: white;
+}
+.felhasznalonev_regisztracio:focus,
+.felhasznalonev:focus,
+.jelszo:focus,
+.email:focus{
+    border-left: 2px solid #f9b17a;
+    color: white;
+    outline: none;
+    box-shadow: -20px 0 20px -10px #f9b17a;
+}
+
+.felhasznalonev_regisztracio::placeholder,
+.felhasznalonev::placeholder,
+.jelszo::placeholder,
+.email::placeholder{
+    color: white;
+    font-size: medium;
+}
+
+.rememberMe_elfelejtettemJelszavam {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    transform: translateY(-1.2rem);
+}
+
+.rememberMe {
+    border: none;
+    display: flex;
+    align-items: center;
+    transform: translateX(10%);
+}
+
+.rememberMe>p {
+    color: #676f9d;
+    text-decoration: none;
+    transform: translateY(-37%);
+}
+
+.rememberMe>input[type=checkbox] {
+    padding: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: none;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+}
+
+.rememberMe>input[type="checkbox"]:checked {
+    background-color: #f9b17a;
+    box-shadow: 0 0 20px #f9b17a;
+}
+
+.elfelejtettemJelszavam {
+    border: none;
+    align-items: center;
+    padding-right: 1.5rem;
+    transform: translateX(-2%);
+}
+
+.elfelejtettemJelszavam>a {
+    color: #676f9d;
+    text-decoration: none;
+}
+
+.elfelejtettemJelszavam a:hover{
+    text-shadow: 0 0 10px #676f9d;
+}
+
+.regisztracio{ /*ez a kartya hatulja*/
+    position: absolute;
+}

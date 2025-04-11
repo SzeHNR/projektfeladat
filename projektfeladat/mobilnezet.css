@@ -1,0 +1,403 @@
+.mobil_vissza_nyil {
+    display: none; 
+}
+.menuicon_div{
+    display: none; /* This should hide it and its pseudo-elements on large screens */
+}
+
+@media screen and (max-width: 768px) {
+    .main_felulet {
+        grid-template-columns: 1fr;
+        /* Changed from 1fr 5fr */
+        position: relative;
+        /* Keep relative positioning */
+    }
+
+    /* --- Responsive Tables --- */
+    .main-table,
+    /* Target the container div */
+    .habits-div .habits-table {
+        /* Target the container div */
+        display: block;
+        /* Allow block-level properties */
+        width: 100%;
+        /* Take full width */
+        overflow-x: auto;
+        /* Enable horizontal scrolling */
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scrolling on iOS */
+        border: 1px solid #444;
+        /* Optional: add border to indicate scrollable area */
+        margin-bottom: 1rem;
+        /* Add some space below tables */
+    }
+
+    .main-table table,
+    .habits-table table {
+        width: auto;
+        /* Allow table to exceed container width */
+        min-width: 100%;
+        /* Ensure it fills at least the container width */
+        border-collapse: collapse;
+        /* Ensure borders look right */
+    }
+
+    .main-table td,
+    .main-table th,
+    .habits-table td,
+    .habits-table th {
+        white-space: nowrap;
+        /* Prevent text wrapping */
+        padding: 0.5rem;
+        /* Adjust padding for smaller screens */
+        font-size: 0.8rem;
+        /* Adjust font size */
+    }
+
+    .main-table th,
+    .habits-table th {
+        padding: 0.8rem 0.5rem;
+        /* Adjust header padding */
+    }
+
+    .elsoTH {
+        width: 6rem;
+        /* Adjust first header width */
+    }
+
+    /* --- End Responsive Tables --- */
+
+
+    .het {
+        grid-template-columns: 1fr;
+        height: fit-content;
+    }
+
+    .kovetkezo_het {
+        grid-column: 1/2;
+    }
+
+    /* --- Mobile Menu Icon --- */
+    .menuicon_div {
+        display: block;
+        /* Show the container */
+        position: absolute;
+        /* Position relative to .teendok_fejlec */
+        top: 10px;
+        /* Adjust position */
+        left: 10px;
+        /* Adjust position */
+        z-index: 1001;
+        /* Ensure it's above the sidebar when closed */
+        border: none !important;
+        /* Override potential borders */
+    }
+
+    .menuicon {
+        display: block;
+        /* Show the icon */
+        height: 2rem;
+        width: 2rem;
+        /* Ensure width is set */
+        padding: 0.5rem;
+        background-color: #fff;
+        border-radius: 5px;
+        /* Simpler radius */
+        cursor: pointer;
+        /* Remove absolute positioning relative to parent */
+        position: static;
+        margin-left: 0;
+        /* Reset margin */
+        left: auto;
+        /* Reset left */
+        top: auto;
+        /* Reset top */
+    }
+
+    /* Remove pseudo-elements for the icon container in mobile view */
+    .menuicon_div::before,
+    .menuicon_div::after {
+        display: none;
+    }
+
+    /* --- End Mobile Menu Icon --- */
+
+
+    .menuszoveg {
+        display: none;
+    }
+
+    /* --- Mobile Sidebar --- */
+    .oldalsav {
+        display: none;
+        /* Initially hidden, controlled by JS */
+        position: fixed;
+        /* Fixed position */
+        top: 0;
+        left: 0;
+        width: 250px;
+        /* Fixed width for the sidebar */
+        height: 100vh;
+        /* Full viewport height */
+        background-color: #2d3250;
+        /* Darker background */
+        z-index: 1000;
+        /* Ensure it's above other content */
+        border: none;
+        /* Remove border */
+        border-right: 2px solid #fff;
+        /* Add a right border */
+        border-radius: 0;
+        /* Remove border-radius */
+        margin-right: 0;
+        /* Remove margin */
+        overflow-y: auto;
+        /* Allow scrolling if content exceeds height */
+        padding-top: 4rem;
+        /* Add padding to push content below potential top bar */
+    }
+
+    .oldalsav .fejlec_kerekites {
+        /* Adjust menu header inside sidebar */
+        display: none;
+        /* Hide the rounded header in mobile */
+    }
+
+    .oldalsav .nav-item {
+        padding: 1rem;
+        /* Adjust padding */
+        margin: 0.5rem 1rem;
+        /* Adjust margin */
+    }
+
+    .oldalsav .home {
+        margin-top: 1rem;
+        /* Adjust top margin */
+    }
+
+    /* --- End Mobile Sidebar --- */
+
+
+    .teendok {
+        position: relative;
+        height: 100%;
+        /* Adjust height */
+        width: 100%;
+        /* Ensure full width */
+        padding-left: 10px;
+        /* Add padding to avoid overlap with potential fixed elements */
+        padding-right: 10px;
+    height: calc(100vh - 10rem);
+
+    }
+
+    .main {
+        position: relative;
+        height: auto;
+        /* Adjust height */
+        padding-top: 50px;
+        /* Add padding top to account for menu icon */
+    }
+
+    .rutinok {
+        grid-template-columns: 1fr;
+        /* Stack elements vertically */
+        gap: 20px;
+        /* Add gap between stacked items */
+    }
+
+    .rutinok>div {
+        /* Ensure child divs take full width */
+        width: 100%;
+    }
+
+    .main-hr {
+        display: none;
+        /* Hide the horizontal rule in mobile */
+    }
+
+    .jegyzetek-card-main{
+        grid-template-columns: 1fr 1fr;
+        /* Single column for notes */
+        height: auto;
+        /* Adjust height */
+        /* Add padding */
+        height: calc(100vh - 10rem);
+
+    }
+
+    .jegyzetek-card {
+        height: 15rem;
+        /* Adjust card height */
+        /* Set minimum height */
+    }
+
+    /* Adjust padding/margins for main sections */
+    .HOME,
+    .HABITS,
+    .NOTES,
+    .GARDEN {
+        padding: 10px;
+    }
+
+    .habits-main,
+    .fejlec_feladatok {
+        border: none;
+        /* Remove borders in mobile view */
+    }
+
+    .teendok_fejlec {
+        padding: 10px 0;
+        /* Adjust padding */
+        min-height: 40px;
+        /* Ensure space for menu icon */
+    }
+
+    .teendok_fejlec .fejlec_kerekites {
+        /* Ensure header text is centered if needed, but icon is on left */
+        position: static;
+        transform: none;
+        margin: auto;
+        /* Center the title */
+        display: inline-block;
+        /* Allow centering */
+    }
+
+    .teendok_fejlec .fejlec_kerekites::before,
+    .teendok_fejlec .fejlec_kerekites::after {
+        display: none;
+        /* Hide corner curves */
+    }
+
+    /* Adjust font sizes for smaller inputs */
+    ul input[type=text],
+    .napi_feladatok>input[type=text] {
+        font-size: 0.9rem;
+        /* Slightly larger font for readability */
+    }
+
+    /* Add these styles inside the @media screen and (max-width: 768px) block */
+
+    .mobil_vissza_nyil {
+        display: none;
+        /* Initially hidden */
+        position: absolute;
+        top: 15px;
+        /* Adjust position */
+        left: 15px;
+        /* Adjust position */
+        color: #fff;
+        background-color: #424769;
+        /* Optional: style to match */
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1001;
+        /* Ensure it's above other sidebar content if needed */
+        font-weight: bold;
+    }
+
+    /* Control sidebar visibility with a class */
+    .oldalsav {
+        display: none;
+        /* Keep hidden by default */
+        /* ... other existing .oldalsav styles ... */
+        padding-top: 5rem;
+        /* Increased padding to make space for back arrow */
+    }
+
+    .oldalsav.aktiv {
+        display: block;
+        /* Show sidebar when active */
+    }
+
+    .oldalsav.aktiv .mobil_vissza_nyil {
+        display: block;
+        /* Show back arrow when sidebar is active */
+    }
+        
+    .teendok_fejlec {
+        padding: 10px 0; /* Adjust padding */
+        min-height: 40px; /* Ensure space for menu icon */
+        /* Modify grid for mobile centering */
+        display: grid;
+        grid-template-columns: auto 1fr auto; /* Icon | Title | Spacer (or nothing) */
+        align-items: center; /* Vertically align items */
+        position: relative; /* Needed for absolute positioning of icon */
+    }
+
+    /* Keep .menuicon_div styles as they are for absolute positioning */
+    .menuicon_div {
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1001;
+        border: none !important;
+    }
+
+
+    .teendok_fejlec .fejlec_kerekites {
+        /* Place in the middle column and center */
+        grid-column: 2 / 3;
+        justify-self: center; /* Center horizontally within the grid cell */
+        /* Remove absolute positioning artifacts if any were inherited */
+        position: static;
+        transform: none;
+        /* Keep other styles */
+        display: flex; /* Use flex for internal alignment */
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem 1.5rem;
+        background-color: #fff;
+        color: #2d3250;
+        font-size: clamp(1rem, 1.2rem, 2rem); /* Adjusted font size slightly */
+        border-radius: 0 0 10px 10px;
+        border: none;
+        width: fit-content; /* Ensure it doesn't stretch unnecessarily */
+    }
+
+    .teendok_fejlec .fejlec_kerekites::before,
+    .teendok_fejlec .fejlec_kerekites::after {
+        display: none; /* Hide corner curves */
+    }
+
+    /* Modify this rule inside the @media block */
+    .habits-div { 
+        display: grid; /* Ensure it's a grid container */
+        grid-template-columns: 1fr; /* Stack elements vertically */
+        gap: 20px; /* Add space between stacked items */
+        padding: 1rem; /* Optional: Add padding if needed */
+        /* Add height and vertical scroll */
+        height: calc(100vh - 10rem); /* Example: Adjust based on header/footer/padding */
+        overflow-y: scroll;
+        overflow-x: hidden; /* Prevent horizontal scroll on the main container */
+    }
+
+    /* Ensure child elements take full width if necessary */
+    .habits-div > div { 
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+
+    /* Keep the existing table responsiveness rules for the CONTAINER */
+    .habits-div .habits-table { 
+        display: block; /* Keep this for overflow */
+        width: 100%; /* Ensure it takes full width */
+        overflow-x: auto; /* Keep horizontal scroll for the table */
+        -webkit-overflow-scrolling: touch; 
+        border: 1px solid #444; 
+        margin-bottom: 1rem; 
+        /* Add a min-height for debugging if needed */
+        min-height: 150px; 
+        /* background-color: rgba(255, 0, 0, 0.1); */ /* Debug background */
+    }
+
+    /* Keep the rules for the TABLE itself */
+    .habits-table table {
+        width: auto; 
+        min-width: 100%; 
+        border-collapse: collapse; 
+    }
+   
+}
