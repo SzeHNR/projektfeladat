@@ -1,5 +1,6 @@
 .jegyzetek-container{
     border: none;
+    
 }
 
 .jegyzetek-card-main{
@@ -8,6 +9,9 @@
     gap: 1.5rem;
     margin: 0 2rem ;
     border: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(100vh - 10rem);
 }
 
 .jegyzetek-card{
@@ -41,7 +45,7 @@
     background-color: transparent;
     height: auto;
     padding: 2px;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     text-align: center;
     border: none;
 
@@ -50,7 +54,6 @@
 .jegyzetek-card>input[type="text"]:focus{
     border: none;
     outline: none;
-    border-bottom: 1px solid white;
 }
 
 .jegyzetek-card>textarea {
@@ -64,7 +67,7 @@
     border: none;
     width: 97%;
     height: 65%;
-    font-size: 12px;
+    font-size: 1rem;
 }
 
 .jegyzetek-card>textarea:focus{
@@ -81,5 +84,8 @@
     background-color: rgb(47, 55, 61);
     border: none;
     margin-bottom: 0;
+}
 
+.jegyzetek-card-Remove:hover{
+    background-color: rgb(39, 46, 51);
 }

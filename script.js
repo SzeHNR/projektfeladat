@@ -214,8 +214,22 @@ document.querySelector("#addEvent").addEventListener("click", () => {
 
 //ez a hamburgermenu 
 function burgermenu() {
-    var element = document.querySelector(".oldalsav");
-    element.style.display = element.style.display === "block" ? "none" : "block";
+    var sidebar = document.querySelector(".oldalsav");
+    // Select ALL menu icon containers
+    var menuIcons = document.querySelectorAll(".menuicon_div"); 
+
+    // Toggle the 'aktiv' class on the sidebar
+    sidebar.classList.toggle("aktiv");
+
+    // Hide/show ALL hamburger icons based on sidebar state
+    if (sidebar.classList.contains("aktiv")) {
+        // Sidebar is open - Hide all icons
+        menuIcons.forEach(icon => icon.style.display = "none"); 
+    } else {
+        // Sidebar is closed - Set all icons back to block display
+        // CSS will only actually display the one within the currently visible section (.HOME, .HABITS, etc.)
+        menuIcons.forEach(icon => icon.style.display = "block"); 
+    }
 }
 
 //ez a rutintablazat 
@@ -323,4 +337,94 @@ function habitusRemove() {
     if (rows.length > 1) {
         tableBody.removeChild(rows[rows.length - 1]);
     }
+}
+
+//Ez a hbaitusokon belul a cel alpontokos cucc
+function GoalAdd() {
+    var ul = document.querySelector(".fitness-goals ul");
+    var li = document.createElement("li");
+    li.innerHTML = "<input type='text'>";
+    ul.appendChild(li);
+
+}
+function GoalRemove() {
+    var ul = document.querySelector(".fitness-goals ul");
+    ul.removeChild(ul.lastChild);
+}
+
+// uj "note" jegyzet hozzaadas 
+function addNote() {
+    const noteContainer = document.querySelector(".jegyzetek-card-main");
+    const noteCard = createNoteCard();
+
+    noteContainer.appendChild(noteCard);
+}
+
+// uj "note" jegyzet hozzaadas ez a kartyzara vonatkozik
+function createNoteCard() {
+    const noteCard = document.createElement("div");
+    noteCard.className = "jegyzetek-card";
+
+    const titleInput = document.createElement("input");
+    titleInput.type = "text";
+    titleInput.placeholder = "CIM";
+
+    const hr = document.createElement("hr");
+
+    const textArea = document.createElement("textarea");
+    textArea.placeholder = "szoveg";
+
+    const removeButton = document.createElement("div");
+    removeButton.className = "jegyzetek-card-Remove";
+    removeButton.innerHTML = "-";
+    removeButton.onclick = removeNote;
+
+    noteCard.appendChild(titleInput);
+    noteCard.appendChild(hr);
+    noteCard.appendChild(textArea);
+    noteCard.appendChild(removeButton);
+
+    return noteCard;
+}
+
+// ez meg torli a bizonyos kartyat
+function removeNote(event) {
+    const noteCard = event.target.parentNode;
+    noteCard.parentNode.removeChild(noteCard);
+}
+
+
+
+
+//AZ EGESZ JS-BEN EZ A LEGFONTOSABB (EMAIATT MUKODIK A MENU XDD)
+let home = document.querySelector(".HOME");
+let habits = document.querySelector(".HABITS");
+let notes = document.querySelector(".NOTES");
+let garden = document.querySelector(".GARDEN");
+function Home() {
+    home.style.display = "grid";
+    habits.style.display = "none";
+    notes.style.display = "none";
+    garden.style.display = "none";
+}
+function Rutin() {
+    home.style.display = "none";
+    habits.style.display = "grid";
+    notes.style.display = "none";
+    garden.style.display = "none";
+}
+
+function Notes() {
+    home.style.display = "none";
+    habits.style.display = "none";
+    notes.style.display = "grid";
+    garden.style.display = "none";
+}
+
+function Kert() {
+    home.style.display = "none";
+    habits.style.display = "none";
+    notes.style.display = "none";
+    garden.style.display = "grid";
+
 }

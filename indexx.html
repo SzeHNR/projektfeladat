@@ -10,14 +10,15 @@
     <link rel="stylesheet" href="minigame.css">
     <link rel="stylesheet" href="teendok.css">
     <link rel="stylesheet" href="fiokadatok.css">
-    <link rel="stylesheet" href="mobilnezet.css">
     <link rel="stylesheet" href="habits.css">
     <link rel="stylesheet" href="jegyzetek.css">
+    <link rel="stylesheet" href="kert.css">
+    <link rel="stylesheet" href="mobilnezet.css">
 </head>
 
 <body>
     <div class="container">
-        <div class="bejelentkezes_regisztracio"> <!--flip card   style="display: none;" -->
+        <div class="bejelentkezes_regisztracio"  style="display: none;"> <!--flip card   style="display: none;" -->
             <div class="bejelentkezes_registracio_inner "> <!--flip card inner-->
                 <div class="bejelentkezes"><!--flip card front-->
                     <div class="bejelentkezes_header">Bejelentkezes</div>
@@ -56,13 +57,12 @@
                     </div>
                 </div>
             </div>
-            <script> //ez igazabol csak a gombok hozzaadnak egy classt amitol forognak
-            </script>
         </div>
         <!--csak azert hogy a belallitasokat folyamatosan oda lehessen rakni-->
         <div class="main_ES_minigame">
             <div class="main_felulet">
                 <div class="oldalsav">
+                    <div class="mobil_vissza_nyil" onclick="burgermenu()"> &lt;&lt; Vissza </div> 
                     <div href="#" class="fejlec_kerekites "><span style="display: block;" class="menuszoveg">menu</span>
                     </div>
                     <div class="hamburgermenu" style="border: none;">
@@ -147,9 +147,7 @@
                                     <textarea id="fixed-textarea"></textarea>
                                 </div>
                             </div>
-                            <script>
 
-                            </script>
                             <div class="het">
                                 <div class="hozzaad" id="addEvent">+</div>
                                 <div class="napok hetfo">
@@ -239,7 +237,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="HABITS" style="display: none;"> <!--HABITS-->
                     <div class="habits-main" style="border: 2px solid white;">
                         <div class="teendok_fejlec">
@@ -301,19 +298,6 @@
                                         <div onclick="GoalRemove()" class="style_habitus">-</div>
                                     </div>
                                 </div>
-                                <script>
-                                    function GoalAdd() {
-                                        var ul = document.querySelector(".fitness-goals ul");
-                                        var li = document.createElement("li");
-                                        li.innerHTML = "<input type='text'>";
-                                        ul.appendChild(li);
-
-                                    }
-                                    function GoalRemove() {
-                                        var ul = document.querySelector(".fitness-goals ul");
-                                        ul.removeChild(ul.lastChild);
-                                    }
-                                </script>
                             </div>
                             <div class="habits-goal-masodik">
                                 <div class="fitness-goal-fejlec">egyeb célok</div>
@@ -329,11 +313,8 @@
                     </div>
                 </div>
 
-
-
                 <div class="NOTES" style="display: none; padding: 0;"> <!--jegyzetek-->
                     <div class="habits-main" style="border: 2px solid white;">
-
                         <div class="teendok_fejlec">
                             <div style="border: none; " class="menuicon_div">
                                 <img src="images/menuIcon_fekete.png" alt="" class="menuicon" onclick="burgermenu()">
@@ -356,52 +337,45 @@
                         </div>
                     </div>
                 </div>
-                <script>
-                    // Function to add a new note
-                    function addNote() {
-                        const noteContainer = document.querySelector(".jegyzetek-card-main");
-                        const noteCard = createNoteCard();
 
-                        noteContainer.appendChild(noteCard);
-                    }
-
-                    // Function to create a new note card
-                    function createNoteCard() {
-                        const noteCard = document.createElement("div");
-                        noteCard.className = "jegyzetek-card";
-
-                        const titleInput = document.createElement("input");
-                        titleInput.type = "text";
-                        titleInput.placeholder = "CIM";
-
-                        const hr = document.createElement("hr");
-
-                        const textArea = document.createElement("textarea");
-                        textArea.placeholder = "szoveg";
-
-                        const removeButton = document.createElement("div");
-                        removeButton.className = "jegyzetek-card-Remove";
-                        removeButton.innerHTML = "-";
-                        removeButton.onclick = removeNote;
-
-                        noteCard.appendChild(titleInput);
-                        noteCard.appendChild(hr);
-                        noteCard.appendChild(textArea);
-                        noteCard.appendChild(removeButton);
-
-                        return noteCard;
-                    }
-
-                    // Function to remove a note
-                    function removeNote(event) {
-                        const noteCard = event.target.parentNode;
-                        noteCard.parentNode.removeChild(noteCard);
-                    }
-
-                </script>
-
-
-                <div class="GARDEN" style="display: none;"> <!--GARDEN-->
+                <div class="GARDEN" style="display: none; padding: 0;"> <!--GARDEN-->
+                    <div class="habits-main" style="border: 2px solid white;">
+                        <div class="teendok_fejlec">
+                            <div style="border: none; " class="menuicon_div">
+                                <img src="images/menuIcon_fekete.png" alt="" class="menuicon" onclick="burgermenu()">
+                            </div>
+                            <div class="fejlec_kerekites">Kerted</div>
+                        </div>
+                        <div class="kert_teljes">
+                            <div class="kert_viragallapot" style="border: 1px solid aqua;">
+                                <div class="kert_virag_hely">
+                                    <img src="images/virag_1.png" alt="">
+                                </div>
+                                <div class="kert_virag_progress">
+                                    <p>IDE JON A PROGRESSBAR</p>
+                                </div>
+                            </div>
+                            <div class="kert_novenyfajtak" style="border: 1px solid greenyellow;">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div class="kert_kuldetes_adatok" style="border: 1px solid red;">
+                                <ul>
+                                    <li>1. kuldetes</li>
+                                    <li>2. kuldetes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="fiok_beallitasok" onclick="fiokadatok_KiBe()">
@@ -423,39 +397,6 @@
 
         </div>
     </div>
-    <script>
-        let home = document.querySelector(".HOME");
-        let habits = document.querySelector(".HABITS");
-        let notes = document.querySelector(".NOTES");
-        let garden = document.querySelector(".GARDEN");
-        function Home() {
-            home.style.display = "grid";
-            habits.style.display = "none";
-            notes.style.display = "none";
-            garden.style.display = "none";
-        }
-        function Rutin() {
-            home.style.display = "none";
-            habits.style.display = "grid";
-            notes.style.display = "none";
-            garden.style.display = "none";
-        }
-
-        function Notes() {
-            home.style.display = "none";
-            habits.style.display = "none";
-            notes.style.display = "grid";
-            garden.style.display = "none";
-        }
-
-        function Kert() {
-            home.style.display = "none";
-            habits.style.display = "none";
-            notes.style.display = "grid";
-            garden.style.display = "none";
-
-        }
-    </script>
     <script src="script.js"></script>
     <!--JS, hagyjad, nincs benne semmi logika, hogy miért itt kell lennie, feljebb viszed és felrobban -->
 </body>
