@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="main HOME"> <!--HOME-->
-                    <div class="fejlec_feladatok">
+                    <div class="fejlec_feladatok" style="margin: 0; padding: 0;">
                         <div class="teendok_fejlec">
                             <div style="border: none; " class="menuicon_div">
                                 <img src="images/menuIcon_fekete.png" alt="" class="menuicon" onclick="burgermenu()">
@@ -137,8 +137,8 @@
                                         </ul>
                                     </div>
                                     <div class="plusz_minusz">
-                                        <div class="plusz" onclick="prioritas_add()">+</div>
-                                        <div class="minusz" onclick="prioritas_minus()">-</div>
+                                        <div class="plusz" onclick="prioritas_add()" style="padding: 5px; margin-bottom: 5px;">+</div>
+                                        <div class="minusz" onclick="prioritas_minus()" style="padding: 5px; margin-bottom: 5px;">-</div>
                                     </div>
                                 </div>
                                 <hr class="main-hr">
@@ -149,7 +149,6 @@
                             </div>
 
                             <div class="het">
-                                <div class="hozzaad" id="addEvent">+</div>
                                 <div class="napok hetfo">
                                     <div class="napi_fejlec hetfo_fejlec">
                                         <h3>hetfo</h3>
@@ -230,8 +229,8 @@
                                         <input type="checkbox" name="" id=""><input type="text">
                                     </div>
                                 </div>
-                                <div class="viragallapot" style="color: white;">
-                                    VIRAG ALLAPOT
+                                <div class="kert_virag_hely" style="color: white;">
+                                    <img src="images/virag_1.png" alt="" style="object-fit: contain;">
                                 </div>
                             </div>
                         </div>
@@ -262,7 +261,6 @@
                                             <th><img src="images/night.png" alt="8 ora alvas" title="8 ora alvas"></th>
                                             <th><img src="images/tree-silhouette.png" alt="teremszet" title="teremszet">
                                             </th>
-                                            <th>progress %</th>
                                         </tr>
                                     </thead>
                                     <tbody id="habits-table-body">
@@ -276,7 +274,6 @@
                                             <td><input type="checkbox"></td>
                                             <td><input type="checkbox"></td>
                                             <td><input type="checkbox"></td>
-                                            <td>%</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -347,32 +344,38 @@
                             <div class="fejlec_kerekites">Kerted</div>
                         </div>
                         <div class="kert_teljes">
-                            <div class="kert_viragallapot" style="border: 1px solid aqua;">
+                            <div class="kert_viragallapot">
                                 <div class="kert_virag_hely">
                                     <img src="images/virag_1.png" alt="">
                                 </div>
                                 <div class="kert_virag_progress">
-                                    <p>IDE JON A PROGRESSBAR</p>
+                                    <div class="progress-info">
+                                        <span>Elért mérföldkövek: <span id="merfoldko-count">0</span></span>
+                                    </div>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-inner" id="progress-bar-fill" style="width: 0%;"></div>
+                                    </div>
+                                    <div class="progress-percentage">
+                                        <span id="progress-percent-text">0%</span> a következő mérföldkőhöz
+                                    </div>
                                 </div>
                             </div>
-                            <div class="kert_novenyfajtak" style="border: 1px solid greenyellow;">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <div class="kert_kuldetes_adatok" style="border: 1px solid red;">
-                                <ul>
-                                    <li>1. kuldetes</li>
-                                    <li>2. kuldetes</li>
-                                </ul>
+                            <div class="item-kuldi" >
+                                <div class="kert_novenyfajtak" >
+                                    <div class="kert-novenyfajtak-item"></div>
+                                    <div class="kert-novenyfajtak-item"></div>
+                                    <div class="kert-novenyfajtak-item"></div>
+                                    <div class="kert-novenyfajtak-item"></div>
+                                    <div class="kert-novenyfajtak-item"></div>
+                                    
+                                </div>
+                                <div class="kert_kuldetes_adatok">
+                                    <hr>
+                                    <ul>
+                                        <li>1. kuldetes</li>
+                                        <li>2. kuldetes</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

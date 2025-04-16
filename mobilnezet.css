@@ -302,4 +302,19 @@
         min-width: 100%; 
         border-collapse: collapse; 
     }
+
+    .kert_teljes{
+        width: 99%;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        color: white;
+    }
+
+    .kert_novenyfajtak{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem;
+        padding: 0.5rem;
+    }
 }

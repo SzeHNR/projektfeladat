@@ -199,6 +199,7 @@ function bejelentkezes(mitCsinaljon) {
         //alert("Hiányzó adat");
     }
 }
+/*
 document.querySelector("#addEvent").addEventListener("click", () => {
     const nev = prompt("Teendő neve:");
     const leiras = prompt("Teendő leírása:");
@@ -210,6 +211,7 @@ document.querySelector("#addEvent").addEventListener("click", () => {
         teendokFrissit();
     }
 });
+*/
 
 
 //ez a hamburgermenu 
@@ -305,6 +307,37 @@ function prioritas_minus() {
     }
 }
 
+/*          ez egy olyan funkcio ami jo lett volna ha mukodik 
+                a habitus menuben levo tablazat utolso eleme egy szazalekszamlalo lett volna
+
+function updateHabitsRowProgress(row) {
+    const checkboxes = row.querySelectorAll('#habits-table-body td input[type="checkbox"]');
+    const totalCheckboxes = checkboxes.length;
+    const percentageCell = row.querySelector('td:last-child');
+
+    if (totalCheckboxes === 0 || !percentageCell) return; 
+    let checkedCount = 0;
+    checkboxes.forEach(cb => {
+        if (cb.checked) {
+            checkedCount++;
+        }
+    });
+
+    const percentage = Math.round((checkedCount / totalCheckboxes) * 100);
+    percentageCell.innerHTML = `${percentage}%`; 
+}
+
+function updateAllHabitsRowsProgress() {
+    const habitsTableBody = document.getElementById('habits-table-body');
+    if (habitsTableBody) {
+        const rows = habitsTableBody.querySelectorAll('tr');
+        rows.forEach(row => {
+            updateHabitsRowProgress(row); 
+        });
+    }
+}
+*/
+
 //teendok ki és be
 function habitusAdd() {
     const tableBody = document.getElementById('habits-table-body');
@@ -386,6 +419,191 @@ function removeNote(event) {
 }
 
 
+//kert mukodese
+function updateGardenProgress() {
+    
+    const checkboxes = document.querySelectorAll('.main-habitus-body input[type="checkbox"], #habits-table-body input[type="checkbox"]');
+    let checkedCount = 0;
+    checkboxes.forEach(cb => {
+        if (cb.checked) {
+            checkedCount++;
+        }
+    });
+    const merfoldko = Math.floor(checkedCount / 50); //50 egysegre van bontva a progressbar azaz 50 db pipat kell beraknia es akkor valt szintet
+    const szazalekKovi = (checkedCount % 50) / 50 * 100;
+
+    const merfoldkoCountElement = document.getElementById('merfoldko-count'); 
+    const progressbarKitoltes = document.getElementById('progress-bar-fill');
+    const progressPercentTextElement = document.getElementById('progress-percent-text');
+
+    if (merfoldkoCountElement) 
+        merfoldkoCountElement.textContent = merfoldko;
+    
+    if (progressbarKitoltes) {
+        progressbarKitoltes.style.backgroundColor = '#af874c'; 
+        progressbarKitoltes.style.width = `${szazalekKovi}%`;
+    }
+    if (progressPercentTextElement) 
+        progressPercentTextElement.textContent = `${Math.round(szazalekKovi)}%`;
+}
+
+const mainHabitTableBody = document.querySelector('.main-habitus-body');
+if (mainHabitTableBody) {
+    mainHabitTableBody.addEventListener('change', function(event) {
+        if (event.target.type === 'checkbox') {
+            updateGardenProgress();
+        }
+    });
+}
+
+const habitsTableBody = document.getElementById('habits-table-body');
+if (habitsTableBody) {
+    habitsTableBody.addEventListener('change', function(event) {
+        if (event.target.type === 'checkbox') {
+            updateGardenProgress();
+        }
+    });
+}
+
+
+const originalMainHabitusAdd = mainHabitusAdd;
+mainHabitusAdd = function() {
+    originalMainHabitusAdd();
+    const newCheckboxes = document.querySelectorAll('.main-habitus-body tr:last-child input[type="checkbox"]');
+    newCheckboxes.forEach(cb => {
+        cb.addEventListener('change', updateGardenProgress);
+    });
+    updateGardenProgress();
+}
+
+const originalMainHabitusRemove = mainHabitusRemove;
+mainHabitusRemove = function() {
+    originalMainHabitusRemove();
+    updateGardenProgress();
+}
+
+const originalHabitusAdd = habitusAdd; 
+habitusAdd = function() {
+    originalHabitusAdd();
+    const newCheckboxes = document.querySelectorAll('#habits-table-body tr:last-child input[type="checkbox"]');
+    newCheckboxes.forEach(cb => {
+        cb.addEventListener('change', updateGardenProgress);
+    });
+     updateGardenProgress();
+}
+
+const originalHabitusRemove = habitusRemove;
+habitusRemove = function() {
+    originalHabitusRemove();
+    updateGardenProgress();
+}
+
+
+// folyamatos frissites
+document.addEventListener('DOMContentLoaded', updateGardenProgress);
+if (document.readyState === "complete" || document.readyState === "interactive") {
+    setTimeout(updateGardenProgress, 1); //kis varatassal van frissulve a lassabb keresok miatt
+}
+
+//viragok valtakozasa 
+const flowerImages = ['images/virag_1.png', 'images/virag_2.png', 'images/virag_3.png', 'images/virag_4.png', 'images/virag_5.png']; // Add meg a virágok képeinek elérési útját
+let currentFlowerStage = 0;
+let lastMilestoneCount = 0; // Kezdeti érték, hogy az első mérföldkő is működjön
+
+
+function updateGardenProgress() {
+    const checkboxes = document.querySelectorAll('.main-habitus-body input[type="checkbox"], #habits-table-body input[type="checkbox"]');
+    let checkedCount = 0;
+    checkboxes.forEach(cb => {
+        if (cb.checked) {
+            checkedCount++;
+        }
+    });
+
+    const merfoldkoPerStage = 2; // Hány pipa kell egy szintlépéshez
+    const merfoldko = Math.floor(checkedCount / merfoldkoPerStage);
+    const szazalekKovi = (checkedCount % merfoldkoPerStage) / merfoldkoPerStage * 100;
+
+    const merfoldkoCountElement = document.getElementById('merfoldko-count');
+    const progressbarKitoltes = document.getElementById('progress-bar-fill');
+    const progressPercentTextElement = document.getElementById('progress-percent-text');
+    const mainFlowerImg = document.querySelector('.kert_virag_hely img');
+    const plantItems = document.querySelectorAll('.kert-novenyfajtak-item');
+
+    // Mérföldkő elérésekor
+    if (merfoldko > lastMilestoneCount && mainFlowerImg) {
+       
+        console.log(`Mérföldkő elérve: ${merfoldko}, Utolsó: ${lastMilestoneCount}, Aktuális fázis: ${currentFlowerStage}`);
+        alert(`elerted a kovetkezo fazist!!!`);
+    
+        if (currentFlowerStage < flowerImages.length) { 
+             const currentImageSrc = flowerImages[currentFlowerStage];
+
+
+             let targetItem = null;
+             for (const item of plantItems) {//gyors ellenorzes ha nem ures
+                 if (!item.querySelector('img')) {
+                     targetItem = item;
+                     break;
+                 }
+             }
+             if (targetItem) {
+                 console.log(`Előző virág (${currentImageSrc}) elhelyezése ide:`, targetItem);
+                 const prevFlowerImg = document.createElement('img');
+                 prevFlowerImg.src = currentImageSrc;
+                 prevFlowerImg.style.maxWidth = '100%';
+                 prevFlowerImg.style.maxHeight = '100%';
+                 prevFlowerImg.style.objectFit = 'contain'; 
+                 targetItem.innerHTML = ''; 
+                 targetItem.appendChild(prevFlowerImg);
+             } else {
+                 console.log("Nincs több üres hely a kert-novenyfajtak-item divekben.");
+             }
+        }
+
+        currentFlowerStage++; // Lépünk a következő fázisra
+        if (currentFlowerStage < flowerImages.length) {
+            console.log(`Következő virág fázis (${currentFlowerStage}): ${flowerImages[currentFlowerStage]}`);
+            mainFlowerImg.src = flowerImages[currentFlowerStage];
+            // Új mérföldkő elérésekor a progress bar nullázódik vizuálisan (de a számítás marad)
+             if (progressbarKitoltes) {
+                progressbarKitoltes.style.width = `0%`; //nullázás
+             }
+             if (progressPercentTextElement) {
+                progressPercentTextElement.textContent = `0%`; 
+             }
+
+        } else {
+            console.log("Elérted az utolsó virág fázist!");
+             if (progressbarKitoltes) {
+                 progressbarKitoltes.style.width = `100%`; //Max
+             }
+              if (progressPercentTextElement) {
+                 progressPercentTextElement.textContent = `100%`; //Max
+             }
+        }
+
+        lastMilestoneCount = merfoldko;
+    }
+    if (merfoldkoCountElement)
+        merfoldkoCountElement.textContent = merfoldko; //Összes elért mérföldkő
+
+     if (currentFlowerStage < flowerImages.length) {
+        if (progressbarKitoltes) {
+             if (merfoldko <= lastMilestoneCount) {
+                progressbarKitoltes.style.width = `${szazalekKovi}%`;
+             }
+        }
+        if (progressPercentTextElement) {
+             if (merfoldko <= lastMilestoneCount) {
+                progressPercentTextElement.textContent = `${Math.round(szazalekKovi)}%`;
+             }
+        }
+     } else {
+         if (progressbarKitoltes) progressbarKitoltes.style.width = '100%';
+         if (progressPercentTextElement) progressPercentTextElement.textContent = '100%';
+     }
+}
 
 
 //AZ EGESZ JS-BEN EZ A LEGFONTOSABB (EMAIATT MUKODIK A MENU XDD)
@@ -418,5 +636,10 @@ function Kert() {
     habits.style.display = "none";
     notes.style.display = "none";
     garden.style.display = "grid";
-
 }
+
+
+
+
+
+

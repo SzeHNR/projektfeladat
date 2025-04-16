@@ -6,6 +6,7 @@
 }
 
 .main-table{
+    margin: auto;
     height: calc(50vh - 10rem);
     overflow-y: scroll;
     overflow-x: hidden;
@@ -50,6 +51,7 @@
 
 .habitus-controls:hover {
     .style_habitus{
+        padding: 5px;
         color: #fff;
         text-align: center;
         background-color: #42424272;

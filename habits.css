@@ -63,7 +63,7 @@
     outline: none;
 }
 
-.habits-table th:first-child, .habits-table th:last-child {
+.habits-table th:first-child{
     width: 6rem;
     text-align: center;
 }

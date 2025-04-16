@@ -10,26 +10,83 @@
     grid-row: 1 / 3;
 }
 
-.kert_virag_hely img{
-    max-height: 30rem;
-    max-width: 30rem;
-    align-items: center;
-    margin: auto;
-    text-align: center;
-    vertical-align: center;
-    translate: 15%;
+.kert_virag_hely {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+}
+
+.viragallapot img,
+.kert_virag_hely img {
+    max-height: 32rem;
+    max-width: 32rem;
+    margin: auto; 
+    display: block; 
 }
 
 .kert_novenyfajtak{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 1rem;
+    gap: 0.2rem;
     padding: 0.5rem;
 }
 
-.kert_novenyfajtak div{
-    height: 10rem;
-    width: 10rem;
 
+.kert-novenyfajtak-item{
+    border: 1px solid white;
+    align-items: stretch;
+    height: fit-content;
+    width: fit-content;
+}
+
+.kert-novenyfajtak-item img{
+    max-height: 20rem;
+    max-width: 20rem;
+}
+
+.item-kuldi{
+    border: 1px solid white; 
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.kert_virag_progress {
+    padding: 10px;
+    color: white;
+    text-align: center;
+   
+    border-radius: 8px;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.progress-info {
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+.progress-bar-container {
+    width: 90%; 
+    margin: 0 auto 8px auto;
+    height: 20px;
+    background-color: #555; 
+    border-radius: 10px; 
+    overflow: hidden;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    background-color: #af874c;
+    border-radius: 10px; 
+    transition: width 0.3s ease-in-out; 
+    text-align: center;
+    line-height: 20px; 
+    color: white;
+}
+
+.progress-percentage {
+    font-size: 0.8em;
+    color: #ccc; 
 }
 
