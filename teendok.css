@@ -5,18 +5,24 @@
     overflow-x: scroll;
 }
 
+.main-table{
+    height: calc(50vh - 10rem);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .main-table td,
 .main-table th {
     border: 1px solid #ddd;
-    width: 1rem;
-    height: 1rem;
+    width: 0.5rem;
+    height: 0.3rem;
     position: relative;
 }
 
 .main-table th {
     background-color: #424769;
     color: #fff;
-    padding: 1.3rem;
+    padding: 0.8rem;
 }
 
 .main-table td img {
@@ -116,9 +122,12 @@
     display: grid;
     border: none;
     color: white;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .elsodleges_feladatok {
+    height: calc(50vh - 10rem);
     border: none;
     overflow-y: scroll;
 }
@@ -233,6 +242,7 @@ ul input[type=text]::placeholder {
     border: 1px solid red;
     height: fit-content;
     bottom: 0;
+    gap: 10px;
 }
 
 .napi_fejlec {
@@ -241,6 +251,9 @@ ul input[type=text]::placeholder {
     color: white;
     border-radius: 5px 5px 0 0;
     border: none;
+    margin: 5px;
+    padding: 1px;
+
 }
 
 .napi_feladatok {
@@ -248,6 +261,8 @@ ul input[type=text]::placeholder {
     display: grid;
     border-left: 2px solid #424769;
     grid-template-columns: 1fr 9fr;
+    padding: 5px;
+    margin: 5px;
 }
 
 .napi_feladatok>input[type=text] {

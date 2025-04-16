@@ -215,19 +215,11 @@ document.querySelector("#addEvent").addEventListener("click", () => {
 //ez a hamburgermenu 
 function burgermenu() {
     var sidebar = document.querySelector(".oldalsav");
-    // Select ALL menu icon containers
     var menuIcons = document.querySelectorAll(".menuicon_div"); 
-
-    // Toggle the 'aktiv' class on the sidebar
     sidebar.classList.toggle("aktiv");
-
-    // Hide/show ALL hamburger icons based on sidebar state
     if (sidebar.classList.contains("aktiv")) {
-        // Sidebar is open - Hide all icons
         menuIcons.forEach(icon => icon.style.display = "none"); 
     } else {
-        // Sidebar is closed - Set all icons back to block display
-        // CSS will only actually display the one within the currently visible section (.HOME, .HABITS, etc.)
         menuIcons.forEach(icon => icon.style.display = "block"); 
     }
 }
