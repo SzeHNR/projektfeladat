@@ -520,7 +520,7 @@ function updateGardenProgress() {
         }
     });
 
-    const merfoldkoPerStage = 2; // Hány pipa kell egy szintlépéshez
+    const merfoldkoPerStage = 50; // Hány pipa kell egy szintlépéshez
     const merfoldko = Math.floor(checkedCount / merfoldkoPerStage);
     const szazalekKovi = (checkedCount % merfoldkoPerStage) / merfoldkoPerStage * 100;
 
